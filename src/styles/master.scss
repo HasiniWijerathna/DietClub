@@ -1,0 +1,55 @@
+@import "./_elements";
+@import "./style";
+@import "./responsive";
+@import "./animate";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+#cardHeader .img {
+  size: 70px;
+}
+.profileGrid {
+  padding-right: 0;
+  padding-left: 0;
+  margin-bottom: 50%;
+}
+body {
+  font-family: 'Overpass', sans-serif;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 200px;
+  /* bottom = footer height */
+  padding: 25px;
+}
+
+section {
+ padding: 0px;
+}
+
+.logo {
+  content: url('../img/logo.png');
+}
+
+.wrapper {
+  content: url('../img/wrapper-img.gif');
+}
+
+.textArea {
+  margin-bottom: 50px;
+}
+.content {
+  text-align: left;
+}
+.textboxImg {
+  content: url('../img/textbox1.PNG');
+}
