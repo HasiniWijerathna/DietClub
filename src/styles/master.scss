@@ -27,9 +27,10 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  margin: 0 0 200px;
+  // margin: 0 0 200px;
   /* bottom = footer height */
-  padding: 25px;
+  // padding: 25px;
+  min-height: 100%;
 }
 
 section {
@@ -52,4 +53,12 @@ section {
 }
 .textboxImg {
   content: url('../img/textbox1.PNG');
+}
+
+.thumbs-wrapper {
+  display: none;
+}
+
+.legend {
+  display: none;
 }

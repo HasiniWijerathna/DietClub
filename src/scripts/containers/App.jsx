@@ -20,7 +20,6 @@ const App = ({children}) => (
       <section>
         {children || 'Bloggger App loading...'}
       </section>
-      <Footer/>
     </div>
   </MuiThemeProvider>
 );

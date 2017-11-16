@@ -3,6 +3,8 @@ import {render} from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import '../styles/master.scss';
 
 import {isAuthenticated} from './services/SessionService';
@@ -54,21 +56,8 @@ render(
   (<Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="editProfile" component={EditProfile} />
-      <Route path="settings" component={Settings}/>
-      <Route path="aboutUs" component={AboutUs} />
-      <Route path="help" component={Help} />
-      <Route path="userProfile" component={UserProfile} />
-      <Route path="allBlogs" component={AllBlogs} />
       <Route path="login" component={Login} onEnter={checkAuth} />
       <Route path="registration" component={Registration} onEnter={checkAuth} />
-      <Route path="blogs" component={BlogsHomePage} />
-      <Route path="blogs/new" component={AddNewBlog} onEnter={requireAuth} />
-      <Route path="blogs/category/:categoryId" component={BlogCategory} />
-      <Route path="blogs/:blogId" component={BlogPage} />
-      <Route path="blogs/:blogId/posts/new" component={AddNewPost} onEnter={requireAuth} />
-      <Route path="blogs/:blogId/posts/:postId/editPost" component={EditPost} />
-      <Route path="blogs/:blogId/posts/:postId" component={PostPage} />
     </Route>
   </Router>), document.getElementById('root')
 );
