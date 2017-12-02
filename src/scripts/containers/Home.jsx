@@ -43,11 +43,9 @@ class Home extends Component {
     this.state = {
       isAuthenticated: isAuthenticated(),
 
-      blogsOfCategory: [],
       smoothies: getAllSmoothies()
     };
 
-    console.log(this.state.smoothies);
   }
 
   /**
@@ -56,12 +54,6 @@ class Home extends Component {
   logout() {
     resetSession();
     this.setState({isAuthenticated: false});
-  }
-  /**
- * Navigate to the blogs page
- */
-  navaigateBlogs() {
-    browserHistory.push('blogs');
   }
 
   //elements only for example
@@ -78,7 +70,7 @@ class Home extends Component {
   }
 
   /**
-* Describes the elements on the Post page
+* Describes the elements 
 * @return {String} HTML elements
 */
   render() {
@@ -190,7 +182,7 @@ class Home extends Component {
 
         <div style={GridVerticalStyles.root}>
           <GridList cellHeight={180} style={GridVerticalStyles.gridList}>
-      
+
             {this.state.smoothies.map((smoothie) => (
               <GridTile key={smoothie.id} title={smoothie.title} subtitle={< span > by < b > {
                 smoothie.title

@@ -18,7 +18,7 @@ const App = ({children}) => (
     <div>
       <HeaderBar/>
       <section>
-        {children || 'Bloggger App loading...'}
+        {children || 'Diat Club is loading...'}
       </section>
     </div>
   </MuiThemeProvider>

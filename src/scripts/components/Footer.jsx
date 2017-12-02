@@ -18,11 +18,11 @@ class Footer extends Component {
                 <div className="footer-manu">
                   <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/blogs">Blogs</Link></li>
-                    <li><Link to="/aboutUs">About Us</Link></li>
+                    <li><Link to="/">Beverages</Link></li>
+                    <li><Link to="/">About Us</Link></li>
                   </ul>
                 </div>
-                <p>Copyright &copy; Crafted by <a href="home">Blogger</a>.</p>
+                <p>Copyright &copy; Crafted by <a href="home">Diat Club</a>.</p>
               </div>
             </div>
           </div>

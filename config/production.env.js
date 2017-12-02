@@ -3,7 +3,7 @@ module.exports = {
 
   api: {
     protocol: '"http://"',
-    baseURL: '"bloggger.tk/"',
+    baseURL: '""',
     prefix: '"api"',
     version: '""',
   },

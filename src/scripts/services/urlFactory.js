@@ -36,37 +36,5 @@ const modelLikeURL = (modelURL) => {
   return modelLikeURL;
 };
 
-/**
- * Returns get Posts URL
- * @param  {String} userId The userId
- * @return {String}        The getPostURL
- */
-const getPosts = (userId) => {
-  const getPosts = modelURL('user', userId);
-  const getPostsURL = url(getPosts, 'posts');
 
-  return getPostsURL;
-};
-/**
- * Returns get Blogs URL
- * @param  {String} userId The userId
- * @return {String}        The getPostURL
- */
-const getBlogs = (userId) => {
-  const getBlogs = modelURL('user', userId);
-  const getBlogsURL = url(getBlogs, 'blogs');
-
-  return getBlogsURL;
-};
-/**
- * Returns get user favourite Blog URL
- * @param  {String} userId The userId
- * @return {String}        The getPostURL
- */
-const getFavouriteBlogs = (userId) => {
-  const favouriteBlogs = modelURL('user', userId);
-  const getFavouriteBlogs = url(favouriteBlogs, 'blogs', 'favourites');
-
-  return getFavouriteBlogs;
-};
-export {loginURL, registerURL, modelURL, modelLikeURL, getPosts, getBlogs, getFavouriteBlogs};
+export {loginURL, registerURL, modelURL, modelLikeURL};

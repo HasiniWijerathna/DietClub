@@ -121,12 +121,7 @@ class Login extends BaseContainer {
       });
     });
   }
-/**
- * Navigates to the registration page
- */
-  signUp() {
-    browserHistory.push('/registration');
-  }
+
 /**
  * Hides the Snackbar
  */
@@ -147,7 +142,6 @@ class Login extends BaseContainer {
     const onChangeName = this.onChangeName.bind(this);
     const onChangePassword = this.onChangePassword.bind(this);
     const handleRequestClose = this.handleRequestClose.bind(this);
-    const signUp = this.signUp.bind(this);
 
     const snackBarStyle = {
       marginBottom: '20px',
@@ -187,29 +181,12 @@ class Login extends BaseContainer {
 
                 <RaisedButton label="Login" onClick={onConfirm}/>
                 <h2>
-                  <RaisedButton label="Create your account" onClick={signUp} style={buttonStyle}/>
+                  <RaisedButton label="Create your account"style={buttonStyle}/>
                 </h2>
               </hgroup>
             </formgroup>
           </form>
           <CardText></CardText>
-        </Card>
-        <Card>
-          <section id="call-to-action">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="block">
-                    <h2>We design delightful digital experiences.</h2>
-                    <p>Read more about what we do and our philosophy of design.</p>
-                    <p>Judge for yourself The work and results we’ve achieved for other clients,</p>
-                    <p> and meet our highly experienced Team who just love to design.</p>
-                    <RaisedButton label="Create your blog" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
         </Card>
       </div>
     );

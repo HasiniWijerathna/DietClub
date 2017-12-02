@@ -1,5 +1,5 @@
 /**
- * Sample data array
+ * Sample data array untill the databse wired up ;)
  * @type {Array}
  */
 const smoothies = [{
