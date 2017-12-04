@@ -70,7 +70,7 @@ class Home extends Component {
   }
 
   /**
-* Describes the elements 
+* Describes the elements
 * @return {String} HTML elements
 */
   render() {
@@ -180,18 +180,15 @@ class Home extends Component {
           </GridList>
         </div>
 
-        <div style={GridVerticalStyles.root}>
-          <GridList cellHeight={180} style={GridVerticalStyles.gridList}>
-
-            {this.state.smoothies.map((smoothie) => (
-              <GridTile key={smoothie.id} title={smoothie.title} subtitle={< span > by < b > {
-                smoothie.title
-              } < /b></span >} actionIcon={< IconButton > <StarBorder color="white"/> < /IconButton>}>
-                <img src={smoothie.image}/>
-              </GridTile>
-            ))}
-          </GridList>
-        </div>
+        <GridList cellHeight={180} style={GridVerticalStyles.gridList}>
+          {this.state.smoothies.map((smoothie) => (
+            <GridTile key={smoothie.id} title={smoothie.title} subtitle={< span > by < b > {
+              smoothie.title
+            } < /b></span >} actionIcon={< IconButton > <StarBorder color="white"/> < /IconButton>}>
+              <img src={smoothie.image}/>
+            </GridTile>
+          ))}
+        </GridList>
 
         <div>
           <Subheader>Map view</Subheader>

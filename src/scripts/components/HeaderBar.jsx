@@ -65,7 +65,6 @@ class HeaderBar extends Component {
     browserHistory.push('/');
   }
 
-
   handleToggle() {
     this.setState({open: true});
   }
@@ -79,6 +78,14 @@ class HeaderBar extends Component {
   * @return {String} HTML elements
   */
   render() {
+    const stylesDrawer = {
+      backgroundColor: '#364150'
+    };
+
+    const headerContainerStyle = {
+      backgroundColor: '#00BF9A'
+    };
+
     const authenticated = getSession().authenticated;
     const signOut = this.signOut.bind(this);
     const handleToggle = this.handleToggle.bind(this);
@@ -91,8 +98,7 @@ class HeaderBar extends Component {
         <div className="col-12">
           <nav className="navbar navbar-default">
             <div className="container-fluid">
-              <div className="navbar-header">
-              </div>
+              <div className="navbar-header"></div>
               <div className="navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">
                   <li>
@@ -114,8 +120,7 @@ class HeaderBar extends Component {
           <div className="col-12">
             <nav className="navbar navbar-default">
               <div className="container-fluid">
-                <div className="navbar-header">
-                </div>
+                <div className="navbar-header"></div>
                 <div className="navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul className="nav navbar-nav navbar-right">
                     <li>
@@ -129,9 +134,9 @@ class HeaderBar extends Component {
                         horizontal: 'left',
                         vertical: 'top'
                       }}>
-                        <MenuItem primaryText="Profile" />
+                        <MenuItem primaryText="Profile"/>
                         <MenuItem primaryText="Help" disabled/>
-                        <MenuItem primaryText="Settings"disabled/>
+                        <MenuItem primaryText="Settings" disabled/>
                       </IconMenu>
                     </li>
                   </ul>
@@ -144,8 +149,9 @@ class HeaderBar extends Component {
     }
 
     return (
-      <div>
-        <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
+      <div style={headerContainerStyle}>
+        <Drawer docked={false} open={open} onRequestChange={handleClose} containerStyle={{
+        }} disableSwipeToOpen>
           <MenuItem>Home</MenuItem>
           <MenuItem disabled={true}>Menu</MenuItem>
           <MenuItem >Snaks</MenuItem>
@@ -155,9 +161,14 @@ class HeaderBar extends Component {
           <MenuItem >Find Us</MenuItem>
           <MenuItem >About Us</MenuItem>
         </Drawer>
-        <IconButton onClick={handleToggle}>
+
+        <IconButton style={{
+          backgroundColor: '#00BF9A', color={red500} hoverColor={greenA200}
+        }} onClick={handleToggle}>
           <ActionViewHeadline/>
         </IconButton>
+
+        <HomeIcon style={iconStyles} color={red500} hoverColor={greenA200} />
       </div>
     )
   }
