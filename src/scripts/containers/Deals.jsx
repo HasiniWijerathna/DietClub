@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {Card} from 'material-ui/Card';
 
+import CarouselView from '../components/CarouselView';
+
 /**
 * Represents the view logic of adding new functionality
 */
 class Deals extends Component {
 
-/**
+  /**
 * Class constructor
 * @param {Object} props User define component
 */
@@ -14,7 +16,7 @@ class Deals extends Component {
     super(props);
 
     this.state = {
-      files: [],
+      files: []
     };
   }
 
@@ -25,7 +27,7 @@ class Deals extends Component {
   render() {
     return (
       <div>
-        Deals Page
+        <CarouselView/>
       </div>
     );
   }

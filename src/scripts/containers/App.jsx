@@ -3,13 +3,18 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import HeaderBar from '../components/HeaderBar';
 import Footer from '../components/Footer';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {grey900, grey700} from 'material-ui/styles/colors';
+import {grey900, grey700, green500, yellow600
+
+} from 'material-ui/styles/colors';
+
+const primaryColor = '#00BF9A';
 
 const muiTheme = getMuiTheme({
   fontFamily: 'Overpass, sans-serif',
   palette: {
-    primary1Color: grey700,
+    primary1Color: primaryColor,
     textColor: grey900,
+    accent1Color: yellow600,
   },
 });
 

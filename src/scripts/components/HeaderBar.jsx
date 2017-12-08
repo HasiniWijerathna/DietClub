@@ -16,6 +16,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import {blue500, red500, grey50} from 'material-ui/styles/colors';
 
 /**
  * Representing the header bar
@@ -71,9 +72,61 @@ class HeaderBar extends Component {
   }
 
   handleClose() {
+    this.setState({open: true});
+  }
+
+  /**
+   * Navigates to the home page
+   */
+  navaigateHome() {
+    browserHistory.push('/');
     this.setState({open: false});
   }
 
+  /**
+   * Navigates to the home page
+   */
+  navaigateToDeals() {
+    browserHistory.push('/deals');
+    this.setState({open: false});
+  }
+
+  /**
+   * Navigates to the home page
+   */
+  navaigateToNewsletters() {
+    browserHistory.push('/newsletters');
+    this.setState({open: false});
+  }
+
+  /**
+   * Navigates to the home page
+   */
+  navaigateTofavorites() {
+    browserHistory.push('/favorites');
+    this.setState({open: false});
+  }
+  /**
+   * Navigates to the home page
+   */
+  navaigateToAboutUs() {
+    browserHistory.push('/aboutUs');
+    this.setState({open: false});
+  }
+  /**
+   * Navigates to the home page
+   */
+  navaigateToMenu() {
+    browserHistory.push('/menu');
+    this.setState({open: false});
+  }
+  /**
+   * Navigates to the home page
+   */
+  navaigateToSpotIt() {
+    browserHistory.push('/spotIt');
+    this.setState({open: false});
+  }
   /**
   * Describes the elements on the registration page
   * @return {String} HTML elements
@@ -84,6 +137,15 @@ class HeaderBar extends Component {
     const handleToggle = this.handleToggle.bind(this);
     const handleClose = this.handleClose.bind(this);
     // const navigateDeals = this.navigateDeals.bind(this);
+    const navaigateToDeals = this.navaigateToDeals.bind(this);
+    const navaigateToSpotIt = this.navaigateToSpotIt.bind(this);
+    const navaigateToMenu = this.navaigateToMenu.bind(this);
+    const navaigateToAboutUs = this.navaigateToAboutUs.bind(this);
+
+    const headerContainerStyle = {
+     backgroundColor: '#00BF9A'
+   };
+
 
     let open = this.state.open;
     let container = <div className="container">
@@ -144,19 +206,20 @@ class HeaderBar extends Component {
     }
 
     return (
-      <div>
+      <div style={headerContainerStyle}>
         <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
           <MenuItem>Home</MenuItem>
           <MenuItem disabled={true}>Menu</MenuItem>
-          <MenuItem >Snaks</MenuItem>
-          <MenuItem >Promos</MenuItem>
+          <MenuItem > Snaks</MenuItem>
+          <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
           <MenuItem >Events</MenuItem>
           <MenuItem >Newsletters</MenuItem>
-          <MenuItem >Find Us</MenuItem>
-          <MenuItem >About Us</MenuItem>
+          <MenuItem >Find Us map </MenuItem>
+          <MenuItem onClick={navaigateToAboutUs}>About Us</MenuItem>
+            <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
         </Drawer>
         <IconButton onClick={handleToggle}>
-          <ActionViewHeadline/>
+          <ActionViewHeadline color={grey50} hoverColor={grey50} onClick={handleToggle}/>
         </IconButton>
       </div>
     )
