@@ -1,22 +1,17 @@
 import React from 'react';
 import BaseContainer from './BaseContainer';
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardText
-} from 'material-ui/Card';
-
-import Divider from 'material-ui/Divider';
+import {browserHistory} from 'react-router';
 import {getAllNewsletters} from '../services/juiceBarService';
+
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import Divider from 'material-ui/Divider';
+
 /**
 * Represents the view logic
 */
 class Newsletters extends BaseContainer {
 
-  /**
+/**
 * Class constructor
 * @param {Object} props User define component
 */
@@ -24,61 +19,33 @@ class Newsletters extends BaseContainer {
     super(props);
 
     this.state = {
+      openNewsletterCard: false,
       newsletters: getAllNewsletters()
     };
   }
-  /**
-* Describes the elements on the About Us page
-* @return {String} HTML elements
-*/
-  // render() {
-  //   const newsletters = this.state.newsletters;
-  //   console.log(getAllNewsletters());
-  //   return (
 
-  //     let content =null;
-  //   content=(
-  //
-  //    if(newsletters.length) {
-  //      viewNewsletters = newsletters.map((Newsletter) => {
-  //        return (
-  //          <div key={Newsletter.id}>
-  //            <Card key={Newsletter.id}>
-  //                <CardTitle>
-  //                  {Newsletter.content}
-  //                </CardTitle>
-  //            </Card>
-  //          </div>
-  //        );
-  //      })
-  //    } else {
-  //      viewNewsletters = (<div><formgroup>
-  //        <h3>No newsletters yet!</h3>
-  //      </formgroup></div>);
-  //    }
-  //      );
-  //
-  //
-  // }
+  /**
+  * Handle the newsletter click event
+  */
+    newsletterOnClick(id)  {
+      // Not quite sure about what's going on
+      const newsletterId = id-1;
+       browserHistory.push(`/newsletter/${newsletterId}`);
+  }
 
   render() {
-    //  let content = null;
     const newsletters = this.state.newsletters;
-    console.log(getAllNewsletters());
     let viewNewsletters = [];
-    const content = (viewNewsletters = newsletters.map((Newsletter) => {
-      return (
-        <div key={Newsletter.id}>
-          <Card key={Newsletter.id}>
-            <CardMedia overlay={< CardTitle title = "Overlay title" subtitle = "Overlay subtitle" />}>
-              <img src={Newsletter.image} alt=""/>
-            </CardMedia>
-            <CardTitle>
-              {Newsletter.content}
-            </CardTitle>
-          </Card>
-  
+    const content = (viewNewsletters = newsletters.map((newsletter) => {
+      const newsletterOnClick = this.newsletterOnClick.bind(this,newsletter.id);
 
+      return (
+        <div key={newsletter.id}>
+          <Card key={newsletter.id}>
+            <CardMedia onClick= {newsletterOnClick} overlay={< CardTitle title = {newsletter.name} subtitle = "Read more.." />}>
+              <img src={newsletter.image} alt=""/>
+            </CardMedia>
+          </Card>
         </div>
       );
     }));

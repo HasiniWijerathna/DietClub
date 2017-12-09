@@ -13,6 +13,7 @@ import App from './containers/App';
 import Home from './containers/Home';
 import Deals from './containers/Deals';
 import Newsletters from './containers/Newsletters';
+import Newsletter from './containers/Newsletter';
 import Favorites from './containers/Favorites';
 import SpotIt from './containers/SpotIt';
 import Menu from './containers/Menu';
@@ -56,6 +57,7 @@ render((
       <IndexRoute component={Home}/>
       <Route path="deals" component={Deals}/>
       <Route path="newsletters" component={Newsletters}/>
+      <Route path="newsletter/:newsletterId" component={Newsletter} />
       <Route path="favorites" component={Favorites}/>
       <Route path="spotIt" component={SpotIt}/>
       <Route path="menu" component={Menu}/>

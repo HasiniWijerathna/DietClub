@@ -42,50 +42,50 @@ const smoothies = [{
 
 const newsletters = [{
     id: 1,
-    name: 'Berry Green Smoothie',
+    name: 'New Restaurants and Food News this month',
     price: 200,
 
-    content: 'While rare, some people experience recurrent episodes of anaphylaxis -- a life-threatening allergic reaction -- for which the triggers are never identified. Recently, researchers found that some patients seemingly inexplicable anaphylaxis was actually caused by an uncommon allergy to a molecule found naturally in red meat. They note that the allergy, which is linked to a history of a specific type of tick bite, may be difficult for patients and health care teams to identify.',
-    image: 'https://draxe.com/wp-content/uploads/2014/11/Berry-Green-Smoothie-e1416511703339.jpg',
+    content: 'The World Bacon Championship is part of the World Food Championships, an annual event billed as “the largest competition in food sport.” There are 10 categories, each focusing on a different food; Brumley participated last year in the barbeque competition, placing “a blazing 74th” out of 92 competitors. The four-day event takes place in an arena full of cooking stations with competitors from around the world. Brumley recognized several of his adversaries from cooking shows like Chopped and Top Chef. “It definitely is legit,” he says.',
+    image: 'https://www.departures.com/sites/default/files/1433262617/article_june_food_news_ep_lp_food_spread_2000x1333.jpg',
   }, {
     id: 2,
-    name: 'Blueberry Yogurt Smoothie',
+    name: 'A Stop at bayward market',
     price: 300,
 
     content: 'While rare, some people experience recurrent episodes of anaphylaxis -- a life-threatening allergic reaction -- for which the triggers are never identified. Recently, researchers found that some patients seemingly inexplicable anaphylaxis was actually caused by an uncommon allergy to a molecule found naturally in red meat. They note that the allergy, which is linked to a history of a specific type of tick bite, may be difficult for patients and health care teams to identify.',
-    image: 'https://draxe.com/wp-content/uploads/2014/11/Green-Pumpkin-Pie-Smoothie-e1416375132388.jpg',
+    image: 'http://1.bp.blogspot.com/-rJZzYUlroRs/UgbPDUvz5vI/AAAAAAAAMyU/pI_rCyrzkjs/s1600/11+Berries+++tf.jpg',
   },
   {
     id: 3,
-    name: 'Strawberry Papaya Smoothie',
+    name: 'The Top 10 Sandwich Franchises',
     price: 300,
 
-    content: 'While rare, some people experience recurrent episodes of anaphylaxis -- a life-threatening allergic reaction -- for which the triggers are never identified. Recently, researchers found that some patients seemingly inexplicable anaphylaxis was actually caused by an uncommon allergy to a molecule found naturally in red meat. They note that the allergy, which is linked to a history of a specific type of tick bite, may be difficult for patients and health care teams to identify.',
-    image: 'https://draxe.com/wp-content/uploads/2014/11/Green-Pumpkin-Pie-Smoothie-e1416375132388.jpg',
+    content: 'Sandwiches are big business. The top 10 sandwich franchises from Entrepreneurs Franchise 500 ranking, all rest comfortably in the top 200. The franchises that made the cut are serving healthier meal options at a prices todays consumer can stomach ($5 Footlong sound familiar?). As the quick-service industry continues to move toward convenience, variety and nutrition, sandwich franchises (both big and small) are stepping up to the plate.',
+    image: 'https://i.pinimg.com/originals/4c/51/00/4c51008c37290b26efd2c441319c6ca5.jpg',
   },
   {
     id: 4,
-    name: 'Cherry Almond Smoothie',
+    name: 'These foods will lower your risk of heart disease',
     price: 300,
 
     content: 'While rare, some people experience recurrent episodes of anaphylaxis -- a life-threatening allergic reaction -- for which the triggers are never identified. Recently, researchers found that some patients seemingly inexplicable anaphylaxis was actually caused by an uncommon allergy to a molecule found naturally in red meat. They note that the allergy, which is linked to a history of a specific type of tick bite, may be difficult for patients and health care teams to identify.',
-    image: 'https://draxe.com/wp-content/uploads/2014/11/Green-Pumpkin-Pie-Smoothie-e1416375132388.jpg',
+    image: 'https://www.irishtimes.com/polopoly_fs/1.2183551.1429615244!/image/image.jpg_gen/derivatives/box_620_330/image.jpg',
   },
   {
     id: 5,
-    name: 'Healthy Red Velvet Smoothie',
+    name: 'Health Check: what’s better for you, fresh, dried or frozen fruit?',
     price: 300,
 
     content: 'While rare, some people experience recurrent episodes of anaphylaxis -- a life-threatening allergic reaction -- for which the triggers are never identified. Recently, researchers found that some patients seemingly inexplicable anaphylaxis was actually caused by an uncommon allergy to a molecule found naturally in red meat. They note that the allergy, which is linked to a history of a specific type of tick bite, may be difficult for patients and health care teams to identify.',
-    image: 'https://draxe.com/wp-content/uploads/2014/11/Green-Pumpkin-Pie-Smoothie-e1416375132388.jpg',
+    image: 'https://images1.laweekly.com/imager/u/original/8662891/tsubakilr004.jpg',
   },
   {
     id: 6,
-    name: 'Healthy Berry Smoothie',
+    name: 'US doughnut giants make deforestation-free pledge',
     price: 300,
 
     content: 'While rare, some people experience recurrent episodes of anaphylaxis -- a life-threatening allergic reaction -- for which the triggers are never identified. Recently, researchers found that some patients seemingly inexplicable anaphylaxis was actually caused by an uncommon allergy to a molecule found naturally in red meat. They note that the allergy, which is linked to a history of a specific type of tick bite, may be difficult for patients and health care teams to identify.',
-    image: 'https://draxe.com/wp-content/uploads/2014/11/Green-Pumpkin-Pie-Smoothie-e1416375132388.jpg',
+    image: 'http://www.eco-business.com/media/_versions/ebmedia/fileuploads/shutterstock_193954523_news_featured.jpg',
   },
 ];
 
