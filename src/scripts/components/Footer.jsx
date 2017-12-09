@@ -9,6 +9,7 @@ class Footer extends Component {
   * @return {String} HTML elements
   */
   render() {
+    
     return (
       <div>
         <footer>

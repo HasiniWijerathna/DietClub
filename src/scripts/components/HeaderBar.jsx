@@ -22,6 +22,7 @@ import {blue500, red500, grey50} from 'material-ui/styles/colors';
  * Representing the header bar
  */
 class HeaderBar extends Component {
+  
   /**
   * Class constructor
   * @param {Object} props User define component
@@ -35,23 +36,15 @@ class HeaderBar extends Component {
       open: false
     };
   }
-  /**
- * [description]
- * @param  {[type]} event [description]
- * @param  {[type]} index [description]
- * @param  {[type]} value [description]
- */
-  handleChange(event, index, value) {
-    this.setState({value});
-  }
 
-  /**
+/**
  *Navigates to the login page
  */
   login() {
     browserHistory.push('/login');
   }
-  /**
+
+/**
  * Sets the authenticated false and navigates to the home page
  */
   signOut() {
@@ -59,6 +52,7 @@ class HeaderBar extends Component {
     isAuthenticated() === false;
     browserHistory.push('/');
   }
+
   /**
    * Navigates to the home page
    */
@@ -67,17 +61,22 @@ class HeaderBar extends Component {
     this.setState({open: false});
   }
 
-
+  /**
+   * Handle the drawer button event
+   */
   handleToggle() {
     this.setState({open: true});
   }
 
+  /**
+   * Handle the drawer  event
+   */
   handleClose() {
     this.setState({open: true});
   }
 
   /**
-   * Navigates to the home page
+   * Navigates to the deals page
    */
   navaigateToDeals() {
     browserHistory.push('/deals');
@@ -85,7 +84,7 @@ class HeaderBar extends Component {
   }
 
   /**
-   * Navigates to the home page
+   * Navigates to the newsletters page
    */
   navaigateToNewsletters() {
     browserHistory.push('/newsletters');
@@ -93,69 +92,76 @@ class HeaderBar extends Component {
   }
 
   /**
-   * Navigates to the home page
+   * Navigates to the favorites page
    */
   navaigateTofavorites() {
     browserHistory.push('/favorites');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the about us page
    */
   navaigateToAboutUs() {
     browserHistory.push('/aboutUs');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the menu page
    */
   navaigateToMenu() {
     browserHistory.push('/menu');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the spot it game page
    */
   navaigateToSpotIt() {
     browserHistory.push('/spotIt');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the QR code generation
    */
   navaigateToQRCode() {
     browserHistory.push('/QRCode');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the settings page
    */
   navaigateToSettings() {
     browserHistory.push('/settings');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the place order page
    */
   navaigateToPlaceOrder() {
     browserHistory.push('/placeOrder');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the events page
    */
   navaigateToEvents() {
     browserHistory.push('/events');
     this.setState({open: false});
   }
+
   /**
-   * Navigates to the home page
+   * Navigates to the map view page
    */
   navaigateToMapView() {
     browserHistory.push('/mapViewBranches');
     this.setState({open: false});
   }
-
 
   /**
   * Describes the elements on the registration page
@@ -166,7 +172,7 @@ class HeaderBar extends Component {
     const signOut = this.signOut.bind(this);
     const handleToggle = this.handleToggle.bind(this);
     const handleClose = this.handleClose.bind(this);
-    // const navigateDeals = this.navigateDeals.bind(this);
+
     const navaigateToDeals = this.navaigateToDeals.bind(this);
     const navaigateToSpotIt = this.navaigateToSpotIt.bind(this);
     const navaigateToMenu = this.navaigateToMenu.bind(this);
@@ -174,73 +180,16 @@ class HeaderBar extends Component {
     const navaigateToPlaceOrder = this.navaigateToPlaceOrder.bind(this);
     const navaigateToQRCode = this.navaigateToQRCode.bind(this);
     const navaigateToSettings = this.navaigateToSettings.bind(this);
-    const navaigateToHome =  this.navaigateToHome.bind(this);
+    const navaigateToHome = this.navaigateToHome.bind(this);
     const navaigateToEvents = this.navaigateToEvents.bind(this);
     const navaigateToNewsletters = this.navaigateToNewsletters.bind(this);
     const navaigateToMapView = this.navaigateToMapView.bind(this);
 
     const headerContainerStyle = {
-     backgroundColor: '#00BF9A'
-   };
-
+      backgroundColor: '#00BF9A'
+    };
 
     let open = this.state.open;
-    let container = <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <nav className="navbar navbar-default">
-            <div className="container-fluid">
-              <div className="navbar-header">
-              </div>
-              <div className="navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav navbar-right">
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Login</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>;
-    if (authenticated) {
-      container = <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <nav className="navbar navbar-default">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                </div>
-                <div className="navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul className="nav navbar-nav navbar-right">
-                    <li>
-                      <a onClick={signOut}>Sign out</a>
-                    </li>
-                    <li>
-                      <IconMenu iconButtonElement={< IconButton > <MoreVertIcon/> < /IconButton>} anchorOrigin={{
-                        horizontal: 'left',
-                        vertical: 'top'
-                      }} targetOrigin={{
-                        horizontal: 'left',
-                        vertical: 'top'
-                      }}>
-                        <MenuItem primaryText="Profile" />
-                        <MenuItem primaryText="Help" disabled/>
-                        <MenuItem primaryText="Settings"disabled/>
-                      </IconMenu>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>;
-    }
 
     return (
       <div style={headerContainerStyle}>
@@ -250,12 +199,14 @@ class HeaderBar extends Component {
           <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
           <MenuItem onClick={navaigateToEvents}>Events</MenuItem>
           <MenuItem onClick={navaigateToNewsletters}>Newsletters</MenuItem>
-          <MenuItem onClick={navaigateToMapView}>Find Us map </MenuItem>
+          <MenuItem onClick={navaigateToMapView}>Find Us map
+          </MenuItem>
           <MenuItem onClick={navaigateToAboutUs}>About Us</MenuItem>
           <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
           <MenuItem onClick={navaigateToPlaceOrder}>Place Order</MenuItem>
           <MenuItem onClick={navaigateToQRCode}>Scan It</MenuItem>
         </Drawer>
+
         <IconButton onClick={handleToggle}>
           <ActionViewHeadline color={grey50} hoverColor={grey50} onClick={handleToggle}/>
         </IconButton>

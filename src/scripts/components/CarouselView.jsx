@@ -11,7 +11,7 @@ class CarouselView extends React.Component {
   * @return {String} HTML elements
   */
   render() {
-    
+
     return (
       <div>
         <Carousel showArrows swipeScrollTolerance={0} autoPlay={true} infiniteLoop={true}>

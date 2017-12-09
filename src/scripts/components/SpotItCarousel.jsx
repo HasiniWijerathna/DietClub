@@ -8,7 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
 */
 class SpotItCarousel extends React.Component {
 
-  /**
+/**
 * Class constructor
 * @param {Object} props User define component
 */
@@ -80,7 +80,10 @@ class SpotItCarousel extends React.Component {
     };
   }
 
-  changeSlide()  {
+  /**
+  * Handle the change slide event
+  */
+    changeSlide()  {
     console.log(this.state.elements);
     const newElement = this.state.items[this.state.index];
 
@@ -91,8 +94,6 @@ class SpotItCarousel extends React.Component {
       });
     }
   }
-
-
 
   render() {
     return (

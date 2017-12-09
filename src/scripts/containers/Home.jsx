@@ -11,7 +11,6 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import {GridList, GridTile} from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
 
-
 import {getAllSmoothies} from '../services/juiceBarService';
 import CarouselView from '../components/CarouselView';
 import GridTileSmoothies from '../components/GridTileSmoothies';
@@ -29,12 +28,14 @@ class Home extends Component {
   static login() {
     browserHistory.push('/login');
   }
+
   /**
 * Navigates to the sign up page
 */
   static signUp() {
     browserHistory.push('/registration');
   }
+
   /**
 * Class constructor
 * @param {Object} props User define component
@@ -51,7 +52,7 @@ class Home extends Component {
 
   }
 
-  /**
+/**
 * Sets the session if the authenticaion false
 */
   logout() {
@@ -106,17 +107,17 @@ class Home extends Component {
         </div>
 
         <div>
-      <GridTileSmoothies/>
-        <Subheader>sdf</Subheader>
+          <GridTileSmoothies/>
+          <Subheader>Smoothise</Subheader>
         </div>
 
         <div>
-        <GridVerticalSmoothies/>
+          <GridVerticalSmoothies/>
         </div>
 
         <div>
           <Subheader>Map view</Subheader>
-            <MapView/>
+          <MapView/>
 
         </div>
 

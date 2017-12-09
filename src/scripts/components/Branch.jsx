@@ -2,7 +2,6 @@ import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
-
 /**
 * Represents the view logic
 */
@@ -10,13 +9,11 @@ import FlatButton from 'material-ui/FlatButton';
 // Has replaced by the cards in the mapview component.
 class Branch extends React.Component {
 
-  /**
+/**
   * Describes the elements on the About Us page
   * @return {String} HTML elements
   */
-  render() {
-
-
+render() {
     const CardExampleWithAvatar =  (
       <Card>
         <CardHeader
@@ -27,7 +24,7 @@ class Branch extends React.Component {
         <CardMedia
           overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
         >
-          <img src="images/nature-600-337.jpg" alt="" />
+        <img src="images/nature-600-337.jpg" alt="" />
         </CardMedia>
         <CardTitle title="Card title" subtitle="Card subtitle" />
         <CardText>
@@ -43,7 +40,7 @@ class Branch extends React.Component {
       </Card>
     );
 
-    return (
+  return (
       <div>
         {CardExampleWithAvatar}
       </div>
