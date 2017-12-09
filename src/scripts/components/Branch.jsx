@@ -6,6 +6,8 @@ import FlatButton from 'material-ui/FlatButton';
 /**
 * Represents the view logic
 */
+
+// Has replaced by the cards in the mapview component.
 class Branch extends React.Component {
 
   /**

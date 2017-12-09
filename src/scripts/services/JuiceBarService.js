@@ -89,6 +89,49 @@ const newsletters = [{
   },
 ];
 
+const branches = [{
+    id: 1,
+    name: 'Diet Club - Wattala',
+    member: 'Jullie',
+    events: 'Event 1',
+    image: 'http://www.food-management.com/sites/food-management.com/files/styles/article_featured_standard/public/turnrowtotailgate.jpg?itok=PyiOBxaP',
+  }, {
+    id: 2,
+    name: 'Diet Club - Union Place',
+    member: 'Kate',
+    events: 'Event 2',
+    image: 'https://i.pinimg.com/564x/60/22/fc/6022fc65e04389ab3355223ee8575f90--fresh-bar-design-juice-bar-design-ideas.jpg',
+  },
+  {
+    id: 3,
+    name: 'Diet Club - Malabe',
+    member: 'Jackie',
+    events: 'Event 3',
+    image: 'http://www.ccs-ind.com/content/images/2014/12/nekter-overall-shop.JPG',
+  },
+  {
+    id: 4,
+    name: 'Diet Club - Nugegoda',
+    member: 'Anne',
+    events: 'Event 4',
+    image: 'http://retailrestaurantfb.com/media/k2/items/cache/4eddcf52ae3c01c5072841687dd64dbd_XL.jpg',
+  },
+  {
+    id: 5,
+    name: 'Diet Club - Paliyagoda',
+    member: 'Kia',
+    events: 'Event 5',
+    image: 'https://www.wellandgood.com/wp-content/uploads/2013/10/Grass-Roots-Juicery.jpg',
+  },
+  {
+    id: 6,
+    name: 'Diet Club - Dehiwala',
+    member: 'Misha',
+    events: 'Event 6',
+    image: 'https://static1.squarespace.com/static/544607fee4b0664ae93e92db/t/55431bf2e4b05386c5561710/1430461429529/IMG_0974.JPG?format=1500w',
+  },
+];
+
 /**
  * Returns all smoothie objects
  * @return {Array} The Smoothie array
@@ -97,7 +140,8 @@ const getAllSmoothies = () => smoothies;
 
 const getAllNewsletters= () => newsletters;
 
+const getAllBranches= () => branches;
 
 export {
-  getAllSmoothies, getAllNewsletters
+  getAllSmoothies, getAllNewsletters, getAllBranches
 };
