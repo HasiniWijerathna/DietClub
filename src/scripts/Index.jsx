@@ -17,6 +17,13 @@ import Favorites from './containers/Favorites';
 import SpotIt from './containers/SpotIt';
 import Menu from './containers/Menu';
 import AboutUs from './containers/AboutUs';
+import MyOrders from './containers/MyOrders';
+import Rewards from './containers/Rewards';
+import QRCode from './containers/QRCode';
+import Settings from './containers/Settings';
+import PlaceOrder from './containers/PlaceOrder';
+import Events from './containers/Events';
+import MapViewBranches from './containers/MapViewBranches';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -53,7 +60,13 @@ render((
       <Route path="spotIt" component={SpotIt}/>
       <Route path="menu" component={Menu}/>
       <Route path="aboutUs" component={AboutUs}/>
-
+      <Route path="myOrders" component={MyOrders}/>
+      <Route path="rewards" component={Rewards}/>
+      <Route path="QRCode" component={QRCode}/>
+      <Route path="settings" component={Settings}/>
+      <Route path="placeOrder" component={PlaceOrder}/>
+      <Route path="events" component={Events}/>
+      <Route path="mapViewBranches" component={MapViewBranches}/>
     </Route>
   </Router>
 ), document.getElementById('root'));

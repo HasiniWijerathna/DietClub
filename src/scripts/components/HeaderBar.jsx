@@ -62,8 +62,9 @@ class HeaderBar extends Component {
   /**
    * Navigates to the home page
    */
-  navaigateHome() {
+  navaigateToHome() {
     browserHistory.push('/');
+    this.setState({open: false});
   }
 
 
@@ -73,14 +74,6 @@ class HeaderBar extends Component {
 
   handleClose() {
     this.setState({open: true});
-  }
-
-  /**
-   * Navigates to the home page
-   */
-  navaigateHome() {
-    browserHistory.push('/');
-    this.setState({open: false});
   }
 
   /**
@@ -128,6 +121,43 @@ class HeaderBar extends Component {
     this.setState({open: false});
   }
   /**
+   * Navigates to the home page
+   */
+  navaigateToQRCode() {
+    browserHistory.push('/QRCode');
+    this.setState({open: false});
+  }
+  /**
+   * Navigates to the home page
+   */
+  navaigateToSettings() {
+    browserHistory.push('/settings');
+    this.setState({open: false});
+  }
+  /**
+   * Navigates to the home page
+   */
+  navaigateToPlaceOrder() {
+    browserHistory.push('/placeOrder');
+    this.setState({open: false});
+  }
+  /**
+   * Navigates to the home page
+   */
+  navaigateToEvents() {
+    browserHistory.push('/events');
+    this.setState({open: false});
+  }
+  /**
+   * Navigates to the home page
+   */
+  navaigateToMapView() {
+    browserHistory.push('/mapViewBranches');
+    this.setState({open: false});
+  }
+
+
+  /**
   * Describes the elements on the registration page
   * @return {String} HTML elements
   */
@@ -141,6 +171,13 @@ class HeaderBar extends Component {
     const navaigateToSpotIt = this.navaigateToSpotIt.bind(this);
     const navaigateToMenu = this.navaigateToMenu.bind(this);
     const navaigateToAboutUs = this.navaigateToAboutUs.bind(this);
+    const navaigateToPlaceOrder = this.navaigateToPlaceOrder.bind(this);
+    const navaigateToQRCode = this.navaigateToQRCode.bind(this);
+    const navaigateToSettings = this.navaigateToSettings.bind(this);
+    const navaigateToHome =  this.navaigateToHome.bind(this);
+    const navaigateToEvents = this.navaigateToEvents.bind(this);
+    const navaigateToNewsletters = this.navaigateToNewsletters.bind(this);
+    const navaigateToMapView = this.navaigateToMapView.bind(this);
 
     const headerContainerStyle = {
      backgroundColor: '#00BF9A'
@@ -208,15 +245,16 @@ class HeaderBar extends Component {
     return (
       <div style={headerContainerStyle}>
         <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
-          <MenuItem>Home</MenuItem>
+          <MenuItem onClick={navaigateToHome}>Home</MenuItem>
           <MenuItem disabled={true}>Menu</MenuItem>
-          <MenuItem > Snaks</MenuItem>
           <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
-          <MenuItem >Events</MenuItem>
-          <MenuItem >Newsletters</MenuItem>
-          <MenuItem >Find Us map </MenuItem>
+          <MenuItem onClick={navaigateToEvents}>Events</MenuItem>
+          <MenuItem onClick={navaigateToNewsletters}>Newsletters</MenuItem>
+          <MenuItem onClick={navaigateToMapView}>Find Us map </MenuItem>
           <MenuItem onClick={navaigateToAboutUs}>About Us</MenuItem>
-            <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
+          <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
+          <MenuItem onClick={navaigateToPlaceOrder}>Place Order</MenuItem>
+          <MenuItem onClick={navaigateToQRCode}>Scan It</MenuItem>
         </Drawer>
         <IconButton onClick={handleToggle}>
           <ActionViewHeadline color={grey50} hoverColor={grey50} onClick={handleToggle}/>
