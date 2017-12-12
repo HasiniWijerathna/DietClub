@@ -5,6 +5,7 @@ import {getAllNewsletters} from '../services/juiceBarService';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
+import {GridList, GridTile} from 'material-ui/GridList';
 
 /**
 * Represents the view logic
@@ -41,7 +42,7 @@ class Newsletters extends BaseContainer {
 
       return (
         <div key={newsletter.id}>
-          <Card key={newsletter.id}>
+          <Card key={newsletter.id} onClick= {newsletterOnClick}>
             <CardMedia onClick= {newsletterOnClick} overlay={< CardTitle title = {newsletter.name} subtitle = "Read more.." />}>
               <img src={newsletter.image} alt=""/>
             </CardMedia>

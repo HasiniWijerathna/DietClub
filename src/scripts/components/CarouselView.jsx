@@ -16,19 +16,27 @@ class CarouselView extends React.Component {
       <div>
         <Carousel showArrows swipeScrollTolerance={0} autoPlay={true} infiniteLoop={true}>
           <div>
-            <img src="https://cdn.bormiolirocco.com/wp-content/uploads/2016/08/Smoothie_antiossidante.jpg"/>
+            <img src="https://www.arla.com/globalassets/arla-global/milk/open-your-senses/smoothies/images/open_your_senses_smoothies-split_deck_berry-morning-boost.jpg?preset=half-desktop" />
 
           </div>
           <div>
-            <img src="https://wallpaperscraft.com/image/berries_smoothies_blueberries_currants_107543_1920x1080.jpg"/>
+            <img src="https://www.arla.com/globalassets/arla-global/milk/open-your-senses/smoothies/images/open_your_senses_smoothies-split_deck_broccoli-breaky.jpg?preset=half-desktop"/>
 
           </div>
           <div>
-            <img src="http://www.kaizennaturals.com/wp-content/uploads/2017/10/Neopolitan-Smoothie.jpg"/>
+            <img src="https://www.arla.com/globalassets/arla-global/milk/open-your-senses/smoothies/images/open_your_senses_smoothies-split_deck_green-power-bowl.jpg?preset=half-desktop"/>
 
           </div>
           <div>
-            <img src="http://thejuiceparlor.com/wp-content/uploads/2015/09/tjp-bg-temp.jpg"/>
+            <img src="https://www.arla.com/globalassets/arla-global/milk/open-your-senses/smoothies/images/open_your_senses_smoothies-split_power-up.jpg?preset=half-desktop"/>
+
+          </div>
+          <div>
+            <img src="https://www.arla.com/globalassets/arla-global/milk/open-your-senses/tea/images/open_your_senses_tea-link.jpg?preset=half-desktop"/>
+
+          </div>
+          <div>
+            <img src="https://www.arla.com/globalassets/arla-global/milk/open-your-senses/coffee/images/open_your_senses_coffee-link.jpg?preset=half-desktop"/>
 
           </div>
 

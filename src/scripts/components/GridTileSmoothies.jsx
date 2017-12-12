@@ -2,7 +2,7 @@ import React from 'react';
 
 import {GridList, GridTile} from 'material-ui/GridList';
 
-import {getAllSmoothies} from '../services/juiceBarService';
+import {getAllJuices} from '../services/juiceBarService';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
@@ -20,7 +20,7 @@ class GridTileSmoothies extends React.Component {
     super(props);
 
     this.state = {
-      smoothies: getAllSmoothies()
+      smoothies: getAllJuices()
     };
 
   }

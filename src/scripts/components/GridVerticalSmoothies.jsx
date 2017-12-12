@@ -1,7 +1,7 @@
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 
-import {getAllSmoothies} from '../services/juiceBarService';
+import {getAllShakes} from '../services/juiceBarService';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
@@ -19,7 +19,7 @@ class GridVerticalSmoothies extends React.Component {
     super(props);
 
     this.state = {
-      smoothies: getAllSmoothies()
+      smoothies: getAllShakes()
     };
 
   }
@@ -42,7 +42,7 @@ class GridVerticalSmoothies extends React.Component {
         overflowY: 'auto'
       }
     };
-    
+
     return (
       <div>
         <GridList cellHeight={180} style={GridVerticalStyles.gridList}>

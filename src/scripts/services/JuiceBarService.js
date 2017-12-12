@@ -39,6 +39,81 @@ const smoothies = [{
   },
 ];
 
+const juices = [{
+    id: 1,
+    name: 'Berry Green Smoothie',
+    price: 200,
+    image: 'https://www.joejuice.com/media/2337/pickmeofhindbaer.jpg?&width=800&quality=80',
+  }, {
+    id: 2,
+    name: 'Blueberry Yogurt Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2355/energizer.jpg?&width=640&quality=80',
+  },
+  {
+    id: 3,
+    name: 'Strawberry Papaya Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2334/ironman.jpg?&width=640&quality=80',
+  },
+  {
+    id: 4,
+    name: 'Cherry Almond Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2331/hangoverheaven.jpg?&width=640&quality=80',
+  },
+  {
+    id: 5,
+    name: 'Healthy Red Velvet Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2318/cshot.jpg?&width=640&quality=80',
+  },
+  {
+    id: 6,
+    name: 'Healthy Berry Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2340/sweet-beet.jpg?&width=640&quality=80',
+  },
+];
+
+const shakes = [{
+    id: 1,
+    name: 'Berry Green Smoothie',
+    price: 200,
+    image: 'https://www.joejuice.com/media/2658/sweetjoegurt.jpg?&width=800&quality=80',
+  }, {
+    id: 2,
+    name: 'Blueberry Yogurt Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2659/sweetjoegurtraspberry.jpg?&width=800&quality=80',
+  },
+  {
+    id: 3,
+    name: 'Strawberry Papaya Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2657/bittersweetjoegurt.jpg?&width=800&quality=80',
+  },
+  {
+    id: 4,
+    name: 'Cherry Almond Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2664/thenaturalborn.jpg?&width=800&quality=80',
+  },
+  {
+    id: 5,
+    name: 'Healthy Red Velvet Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2317/energyshake.jpg?&width=800&quality=80',
+  },
+  {
+    id: 6,
+    name: 'Healthy Berry Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2319/easy-shake.jpg?&width=800&quality=80',
+  },
+];
+
+
 
 const newsletters = [{
     id: 1,
@@ -93,42 +168,121 @@ const branches = [{
     id: 1,
     name: 'Diet Club - Wattala',
     member: 'Jullie',
-    events: 'Event 1',
+    address: 'Dr Colvin R de Silva Mawatha, Colombo 01000',
+    openingHours: 'Open Untill 11.00 PM',
+    contact: '0117 729 729',
+    events: [3],
     image: 'http://www.food-management.com/sites/food-management.com/files/styles/article_featured_standard/public/turnrowtotailgate.jpg?itok=PyiOBxaP',
   }, {
     id: 2,
     name: 'Diet Club - Union Place',
     member: 'Kate',
-    events: 'Event 2',
+    address: '7 Station Rd, Colombo 04',
+    openingHours: 'Open Untill 11.00 PM',
+    contact: '0117 739 729',
+    events: [6],
     image: 'https://i.pinimg.com/564x/60/22/fc/6022fc65e04389ab3355223ee8575f90--fresh-bar-design-juice-bar-design-ideas.jpg',
   },
   {
     id: 3,
     name: 'Diet Club - Malabe',
     member: 'Jackie',
-    events: 'Event 3',
+    address: 'B240, Sri Jayawardenepura Kotte',
+    openingHours: 'Open Untill 11.00 PM',
+    contact: '0117 739 729',
+    events: [4],
     image: 'http://www.ccs-ind.com/content/images/2014/12/nekter-overall-shop.JPG',
   },
   {
     id: 4,
     name: 'Diet Club - Nugegoda',
     member: 'Anne',
-    events: 'Event 4',
+    address: '108B George R De Silva Mawatha, Colombo 00130',
+    openingHours: 'Open Untill 11.00 PM',
+    contact: '0117 739 729',
+    events: [5],
     image: 'http://retailrestaurantfb.com/media/k2/items/cache/4eddcf52ae3c01c5072841687dd64dbd_XL.jpg',
   },
   {
     id: 5,
     name: 'Diet Club - Paliyagoda',
     member: 'Kia',
-    events: 'Event 5',
+    address: '197 High Level Rd, Nugegoda',
+    openingHours: 'Open Untill 11.00 PM',
+    contact: '0117 739 729',
+    events: [2],
     image: 'https://www.wellandgood.com/wp-content/uploads/2013/10/Grass-Roots-Juicery.jpg',
   },
   {
     id: 6,
     name: 'Diet Club - Dehiwala',
     member: 'Misha',
-    events: 'Event 6',
+    address: '75 Attidiya Rd, Dehiwala-Mount Lavinia',
+    openingHours: 'Open Untill 11.00 PM',
+    contact: '0117 739 729',
+    events: [1],
     image: 'https://static1.squarespace.com/static/544607fee4b0664ae93e92db/t/55431bf2e4b05386c5561710/1430461429529/IMG_0974.JPG?format=1500w',
+  },
+];
+
+const events = [{
+    id: 1,
+    name: 'Japanese food fest',
+    branch: 'Diet Club - Dehiwala',
+    organizer: 'Misha',
+    date: 'Sat, December 29, 2017',
+    time: '7:00 PM – 10:00 PM',
+    description: ' Chef Rodrigo, in this opportunity, has selected the most traditional, and representative dishes of the Peruvian cuisine.Peru is a touristic destination no only for its touristic places once home to the Incas empire,but also for its gastronomy. Peruvian gastronomy has become well recognized worldwide for its delicious flavors, colorful dishes, rare ingredients, and mainly for its authentic Technics. Being this said Rodrigo welcomes you to an authentic Peruvian experience.',
+    image: 'http://www.oneplatter.com/wp-content/uploads/2017/01/4-Things-To-Expect-At-Coca-Cola-Food-Festival-2017-Foodfest-OnePlatter1-1.jpg',
+  }, {
+    id: 2,
+    name: 'Food Fest',
+    branch: 'Diet Club - Paliyagoda',
+    organizer: 'Kia',
+    date: 'Fri, March 29, 2018',
+    time: '7:00 PM – 10:00 PM',
+    description: ' Chef Rodrigo, in this opportunity, has selected the most traditional, and representative dishes of the Peruvian cuisine.Peru is a touristic destination no only for its touristic places once home to the Incas empire,but also for its gastronomy. Peruvian gastronomy has become well recognized worldwide for its delicious flavors, colorful dishes, rare ingredients, and mainly for its authentic Technics. Being this said Rodrigo welcomes you to an authentic Peruvian experience.',
+    image: 'http://www.welikela.com/wp-content/uploads/2017/05/LA-Food-Fest-2017.jpg',
+  },
+  {
+    id: 3,
+    name: 'Irish Food Events in November 2017',
+    branch: 'Diet Club - Wattala',
+    organizer: 'Jullie',
+    date: 'Sun, January 11, 2018',
+    time: '7:00 PM – 10:00 PM',
+    description: ' Chef Rodrigo, in this opportunity, has selected the most traditional, and representative dishes of the Peruvian cuisine.Peru is a touristic destination no only for its touristic places once home to the Incas empire,but also for its gastronomy. Peruvian gastronomy has become well recognized worldwide for its delicious flavors, colorful dishes, rare ingredients, and mainly for its authentic Technics. Being this said Rodrigo welcomes you to an authentic Peruvian experience.',
+    image: 'http://anygivenfood.com/assets/2015/11/food-events.jpg',
+  },
+  {
+    id: 4,
+    name: 'Taste the world',
+    branch: 'Diet Club - Malabe',
+    organizer: 'Jackie',
+    date: 'Sat, April 2, 2018',
+    time: '7:00 PM – 10:00 PM',
+    description: ' Chef Rodrigo, in this opportunity, has selected the most traditional, and representative dishes of the Peruvian cuisine.Peru is a touristic destination no only for its touristic places once home to the Incas empire,but also for its gastronomy. Peruvian gastronomy has become well recognized worldwide for its delicious flavors, colorful dishes, rare ingredients, and mainly for its authentic Technics. Being this said Rodrigo welcomes you to an authentic Peruvian experience.',
+    image: 'http://www.famousfoodfestival.com/wp-content/uploads/2016/12/famous-food-festival-about.jpg',
+  },
+  {
+    id: 5,
+    name: 'Real Food, Really Fast Official Book Release Party',
+    branch: 'Diet Club - Nugegoda',
+    organizer: 'Anne',
+    date: 'Mon, Augest 19, 2018',
+    time: '7:00 PM – 10:00 PM',
+    description: ' Chef Rodrigo, in this opportunity, has selected the most traditional, and representative dishes of the Peruvian cuisine.Peru is a touristic destination no only for its touristic places once home to the Incas empire,but also for its gastronomy. Peruvian gastronomy has become well recognized worldwide for its delicious flavors, colorful dishes, rare ingredients, and mainly for its authentic Technics. Being this said Rodrigo welcomes you to an authentic Peruvian experience.',
+    image: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F37276115%2F11834303273%2F1%2Foriginal.jpg?w=1000&rect=0%2C0%2C718%2C359&s=988e385c01c37d4cfcb626afb89323d3',
+  },
+  {
+    id: 6,
+    name: '5th Annual All You Can Eat Crab Feast!',
+    branch: 'Diet Club - Union place',
+    organizer: 'kate',
+    date: 'Sat, June 5, 2018',
+    time: '7:00 PM – 10:00 PM',
+    description: ' Chef Rodrigo, in this opportunity, has selected the most traditional, and representative dishes of the Peruvian cuisine.Peru is a touristic destination no only for its touristic places once home to the Incas empire,but also for its gastronomy. Peruvian gastronomy has become well recognized worldwide for its delicious flavors, colorful dishes, rare ingredients, and mainly for its authentic Technics. Being this said Rodrigo welcomes you to an authentic Peruvian experience.',
+    image: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F37940420%2F83236826533%2F1%2Foriginal.jpg?w=800&rect=0%2C0%2C750%2C375&s=8662bc14d5a586e8dcd44281df881e6e',
   },
 ];
 
@@ -142,6 +296,12 @@ const getAllNewsletters= () => newsletters;
 
 const getAllBranches= () => branches;
 
+const getAllEvents= () => events;
+
+const getAllJuices= () =>juices;
+
+const getAllShakes= () => shakes;
+
 export {
-  getAllSmoothies, getAllNewsletters, getAllBranches
+  getAllSmoothies, getAllNewsletters, getAllBranches, getAllEvents, getAllJuices, getAllShakes
 };

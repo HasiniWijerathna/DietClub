@@ -18,8 +18,13 @@ import Branch from './Branch';
 import {getAllBranches} from '../services/juiceBarService';
 
 const customContentStyle = {
-  width: '100%',
-  maxWidth: 'none'
+  // padding: 0,
+  // maxHeight: '80%',
+  // background: 'black'
+  // width: '100%',
+  // maxWidth: 'none'
+  // width: '100%',
+  // maxWidth: 'none',
 };
 
 /**
@@ -84,7 +89,8 @@ class MapView extends React.Component {
       open: false,
       cardViewBranches: {
         name: '',
-        image: ''
+        image: '',
+        openingHours: '',
       }
     });
   }
@@ -99,7 +105,8 @@ class MapView extends React.Component {
         open: true,
         cardViewBranches: {
           name: this.state.branches[index].name,
-          image: this.state.branches[index].image
+          image: this.state.branches[index].image,
+          openingHours: this.state.branches[index].openingHours,
         }
       });
     }
@@ -112,11 +119,8 @@ class MapView extends React.Component {
   render() {
     const handleMarkerPress = this.handleMarkerPress.bind(this);
     const handleClose = this.handleClose.bind(this);
-    console.log(this.state.cardViewBranches.image);
 
-    const actions = [ < FlatButton label = "Cancel" primary = {
-        true
-      }
+    const actions = [ < FlatButton label = "Cancel" fullWidth={true}
       onClick = {
         handleClose
       } />, < FlatButton label = "Submit" primary = {
@@ -166,24 +170,23 @@ class MapView extends React.Component {
     //
     // }
 
+    // <div id="image-container" class="center-cropped">
+    //   <img src={this.state.cardViewBranches.image} alt="" />
+    // </div>
+
     return (
       <div>
-        <div>
-          <Dialog title="Dialog With Custdfsfsdom Width" actions={actions} modal={true} contentStyle={customContentStyle} open={this.state.open} autoScrollBodyContent={true} onRequestClose={handleClose}>
-            <Card>
-              <img src={this.state.cardViewBranches.image} alt=""/>
-              <CardTitle title={this.state.cardViewBranches.name} subtitle="Card subtitle"/>
-              <CardText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-              </CardText>
-              <FlatButton label="Primary" onClick={handleClose}/>
-            </Card>
-          </Dialog>
+       <div>
+         <Dialog modal={true} open={this.state.open} autoScrollBodyContent={true} onRequestClose={handleClose} bodyClassName={'mapview-dialog-content'} repositionOnUpdate>
+           <div id="image-container" class="center-cropped" style={{backgroundImage: `url(${this.state.cardViewBranches.image})`}}></div>
+           <CardTitle title={this.state.cardViewBranches.name} subtitle={this.state.cardViewBranches.openingHours}/>
+           <FlatButton label="Click for more" onClick={handleClose} fullWidth={true}/>
+         </Dialog>
 
-        </div>
-        <MapComponent googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places" loadingElement={< div style = {{ height: `100%` }}/>} containerElement={< div style = {{ height: `400px` }}/>} mapElement={< div style = {{ height: `100%` }}/>} onMarkerClick={this.handleMarkerPress}/>
+       </div>
+       <MapComponent googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places" loadingElement={< div style = {{ height: `100%` }}/>} containerElement={< div style = {{ height: `400px` }}/>} mapElement={< div style = {{ height: `100%` }}/>} onMarkerClick={this.handleMarkerPress}/>
 
-      </div>
+     </div>
 
     );
   }
