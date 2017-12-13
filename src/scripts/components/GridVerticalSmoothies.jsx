@@ -96,11 +96,12 @@ class GridVerticalSmoothies extends React.Component {
     return (
 
       <div>
-        <FlatButton label="Back" onClick={handleClose} fullWidth={true}/>
         <Dialog modal={true} open={this.state.open} autoScrollBodyContent={true} onRequestClose={handleClose} bodyClassName={'smoothie-dialog-content'} repositionOnUpdate>
           <div id="image-container" class="center-cropped" style={{backgroundImage: `url(${this.state.cardViewSmoothie.image})`}}></div>
-          <CardTitle title={this.state.cardViewSmoothie.name} subtitle={`Price : ${this.state.cardViewSmoothie.price}`} />
+          <CardTitle title={this.state.cardViewSmoothie.name} subtitle={`Price ${this.state.cardViewSmoothie.price}`} />
+          <FlatButton label="Back" onClick={handleClose} fullWidth={true}/>
         </Dialog>
+
         <GridList cellHeight={180} style={GridVerticalStyles.gridList}>
           {this.state.smoothies.map((smoothie) => (
             <GridTile key={smoothie.id} title={smoothie.name} onClick={this.smoothieOnClick.bind(this, smoothie.id)}>
