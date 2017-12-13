@@ -4,36 +4,36 @@
  */
 const smoothies = [{
     id: 1,
-    name: 'Berry Green Smoothie',
+    name: 'Berry Smoothie',
     price: 200,
     image: 'https://draxe.com/wp-content/uploads/2014/11/Berry-Green-Smoothie-e1416511703339.jpg',
   }, {
     id: 2,
-    name: 'Blueberry Yogurt Smoothie',
+    name: 'Blueberry Smoothie',
     price: 300,
     image: 'https://draxe.com/wp-content/uploads/2014/11/Cherry-Almond-Smoothies-e1416182218569.jpg',
   },
   {
     id: 3,
-    name: 'Strawberry Papaya Smoothie',
+    name: 'Strawberry Smoothie',
     price: 300,
     image: 'https://draxe.com/wp-content/uploads/2014/11/Healthy-Red-Velvet-Smoothies-e1416375313689.jpg',
   },
   {
     id: 4,
-    name: 'Cherry Almond Smoothie',
+    name: 'Cherry Smoothie',
     price: 300,
     image: 'https://draxe.com/wp-content/uploads/2014/11/Green-Pumpkin-Pie-Smoothie-e1416375132388.jpg',
   },
   {
     id: 5,
-    name: 'Healthy Red Velvet Smoothie',
+    name: 'Red Velvet Smoothie',
     price: 300,
     image: 'https://draxe.com/wp-content/uploads/2014/11/Stomach-Cleanser-Smoothie-e1416375258738.jpg',
   },
   {
     id: 6,
-    name: 'Healthy Berry Smoothie',
+    name: 'Berry Smoothie',
     price: 300,
     image: 'https://draxe.com/wp-content/uploads/2014/11/pb-j-smoothie-716x371.png',
   },
@@ -41,36 +41,36 @@ const smoothies = [{
 
 const juices = [{
     id: 1,
-    name: 'Berry Green Smoothie',
+    name: 'Berry Smoothie',
     price: 200,
     image: 'https://www.joejuice.com/media/2337/pickmeofhindbaer.jpg?&width=800&quality=80',
   }, {
     id: 2,
-    name: 'Blueberry Yogurt Smoothie',
+    name: 'Blueberry Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2355/energizer.jpg?&width=640&quality=80',
   },
   {
     id: 3,
-    name: 'Strawberry Papaya Smoothie',
+    name: 'Papaya Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2334/ironman.jpg?&width=640&quality=80',
   },
   {
     id: 4,
-    name: 'Cherry Almond Smoothie',
+    name: 'Almond Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2331/hangoverheaven.jpg?&width=640&quality=80',
   },
   {
     id: 5,
-    name: 'Healthy Red Velvet Smoothie',
+    name: 'Red Velvet Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2318/cshot.jpg?&width=640&quality=80',
   },
   {
     id: 6,
-    name: 'Healthy Berry Smoothie',
+    name: 'Berry Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2340/sweet-beet.jpg?&width=640&quality=80',
   },
@@ -78,41 +78,113 @@ const juices = [{
 
 const shakes = [{
     id: 1,
-    name: 'Berry Green Smoothie',
+    name: 'The Sweet',
     price: 200,
     image: 'https://www.joejuice.com/media/2658/sweetjoegurt.jpg?&width=800&quality=80',
   }, {
     id: 2,
-    name: 'Blueberry Yogurt Smoothie',
+    name: 'Blueberry Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2659/sweetjoegurtraspberry.jpg?&width=800&quality=80',
   },
   {
     id: 3,
-    name: 'Strawberry Papaya Smoothie',
+    name: 'Veggie Focus',
     price: 300,
     image: 'https://www.joejuice.com/media/2657/bittersweetjoegurt.jpg?&width=800&quality=80',
   },
   {
     id: 4,
-    name: 'Cherry Almond Smoothie',
+    name: 'Cherry Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2664/thenaturalborn.jpg?&width=800&quality=80',
   },
   {
     id: 5,
-    name: 'Healthy Red Velvet Smoothie',
+    name: 'Velvet Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2317/energyshake.jpg?&width=800&quality=80',
   },
   {
     id: 6,
-    name: 'Healthy Berry Smoothie',
+    name: 'Ice Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2319/easy-shake.jpg?&width=800&quality=80',
   },
+  {
+    id: 7,
+    name: 'Ve-Gein Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2621/ve-gain.jpg?&width=800&quality=80',
+  },
+  {
+    id: 8,
+    name: 'Super Shake',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2618/supershake.jpg?&width=800&quality=80',
+  },
+  {
+    id: 9,
+    name: 'Velvet Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2336/lemonshake.jpg?&width=800&quality=80',
+  },
+  {
+    id: 10,
+    name: 'Lemon Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2319/easy-shake.jpg?&width=800&quality=80',
+  },
+  {
+    id: 11,
+    name: 'Choco Smoothie',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2615/chokoshake.jpg?&width=800&quality=80',
+  },
+  {
+    id: 12,
+    name: 'Berry Shake',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2354/powershake.jpg?&width=800&quality=80',
+  }
 ];
 
+const salads = [{
+    id: 1,
+    name: 'Turkey',
+    price: 200,
+    image: 'https://www.joejuice.com/media/2344/turkey-01.jpg?&width=800&quality=80',
+  }, {
+    id: 2,
+    name: 'Tunacado',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2339/tunacado.jpg?&width=800&quality=80',
+  },
+  {
+    id: 3,
+    name: 'joes Club',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2333/joes-club.jpg?&width=800&quality=80',
+  },
+  {
+    id: 4,
+    name: 'Serrando',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2341/serano.jpg?&width=800&quality=80',
+  },
+  {
+    id: 5,
+    name: 'Spicy Tuna',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2342/spicy-tuna.jpg?&width=800&quality=80',
+  },
+  {
+    id: 6,
+    name: 'Avocado',
+    price: 300,
+    image: 'https://www.joejuice.com/media/2310/avocado.jpg?&width=800&quality=80',
+  }
+];
 
 
 const newsletters = [{
@@ -302,6 +374,8 @@ const getAllJuices= () =>juices;
 
 const getAllShakes= () => shakes;
 
+const getAllSalads= () => salads;
+
 export {
-  getAllSmoothies, getAllNewsletters, getAllBranches, getAllEvents, getAllJuices, getAllShakes
+  getAllSmoothies, getAllNewsletters, getAllBranches, getAllEvents, getAllJuices, getAllShakes, getAllSalads
 };

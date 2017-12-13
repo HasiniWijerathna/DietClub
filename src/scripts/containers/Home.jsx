@@ -108,7 +108,7 @@ class Home extends Component {
 
         <div>
           <GridTileSmoothies/>
-          <Subheader>Smoothise</Subheader>
+          <Subheader>Smoothies</Subheader>
         </div>
 
         <div>

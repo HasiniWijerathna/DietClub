@@ -22,7 +22,7 @@ import {blue500, red500, grey50} from 'material-ui/styles/colors';
  * Representing the header bar
  */
 class HeaderBar extends Component {
-  
+
   /**
   * Class constructor
   * @param {Object} props User define component
@@ -108,14 +108,6 @@ class HeaderBar extends Component {
   }
 
   /**
-   * Navigates to the menu page
-   */
-  navaigateToMenu() {
-    browserHistory.push('/menu');
-    this.setState({open: false});
-  }
-
-  /**
    * Navigates to the spot it game page
    */
   navaigateToSpotIt() {
@@ -164,6 +156,15 @@ class HeaderBar extends Component {
   }
 
   /**
+   * Navigates to the menu view page
+   */
+  navaigateToMenu() {
+    browserHistory.push('/menu');
+    this.setState({open: false});
+  }
+
+
+  /**
   * Describes the elements on the registration page
   * @return {String} HTML elements
   */
@@ -185,6 +186,7 @@ class HeaderBar extends Component {
     const navaigateToNewsletters = this.navaigateToNewsletters.bind(this);
     const navaigateToMapView = this.navaigateToMapView.bind(this);
 
+
     const headerContainerStyle = {
       backgroundColor: '#00BF9A'
     };
@@ -195,7 +197,7 @@ class HeaderBar extends Component {
       <div style={headerContainerStyle}>
         <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
           <MenuItem onClick={navaigateToHome}>Home</MenuItem>
-          <MenuItem disabled={true}>Menu</MenuItem>
+          <MenuItem onClick={navaigateToMenu}>Menu</MenuItem>
           <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
           <MenuItem onClick={navaigateToEvents}>Events</MenuItem>
           <MenuItem onClick={navaigateToNewsletters}>Newsletters</MenuItem>

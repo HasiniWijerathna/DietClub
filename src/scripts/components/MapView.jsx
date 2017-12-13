@@ -16,6 +16,8 @@ import {
 
 import Branch from './Branch';
 import {getAllBranches} from '../services/juiceBarService';
+import MediaQuery from 'react-responsive';
+import {browserHistory} from 'react-router';
 
 const customContentStyle = {
   // padding: 0,
@@ -41,8 +43,6 @@ const MapComponent = withScriptjs(withGoogleMap((props) => {
       props.onMarkerClick.bind(this, 4)
     } />, < Marker position = {{ lat: 6.830118499999999, lng: 79.88008319999994 }}onClick = {
       props.onMarkerClick.bind(this, 5)
-    } />, < Marker position = {{ lat: 6.9707719, lng: 79.89352429999997 }}onClick = {
-      props.onMarkerClick.bind(this, 6)
     } />
   ]
   return (
@@ -82,12 +82,22 @@ class MapView extends React.Component {
   }
 
   /**
+  * Handle the newsletter click event
+  */
+  mapViewOnClick(id)  {
+    // Not quite sure about what's going on
+    const branchId = id-1;
+     browserHistory.push(`/branch/${branchId}`);
+  }
+
+  /**
   * Handle the dialog box close event
   */
   handleClose() {
     this.setState({
       open: false,
       cardViewBranches: {
+        id: '',
         name: '',
         image: '',
         openingHours: '',
@@ -104,6 +114,7 @@ class MapView extends React.Component {
       this.setState({
         open: true,
         cardViewBranches: {
+          id: this.state.branches[index].id,
           name: this.state.branches[index].name,
           image: this.state.branches[index].image,
           openingHours: this.state.branches[index].openingHours,
@@ -117,6 +128,7 @@ class MapView extends React.Component {
   * @return {String} HTML elements
   */
   render() {
+    console.log(this.state.cardViewBranches.id);
     const handleMarkerPress = this.handleMarkerPress.bind(this);
     const handleClose = this.handleClose.bind(this);
 
@@ -184,7 +196,11 @@ class MapView extends React.Component {
          </Dialog>
 
        </div>
-       <MapComponent googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places" loadingElement={< div style = {{ height: `100%` }}/>} containerElement={< div style = {{ height: `400px` }}/>} mapElement={< div style = {{ height: `100%` }}/>} onMarkerClick={this.handleMarkerPress}/>
+       <MapComponent googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+         loadingElement={< div style = {{ height: `100%` }}/>}
+         containerElement={< div style = {{ height: `400px` }}/>}
+         mapElement={< div style = {{ height: `100%` }}/>}
+         onMarkerClick={this.handleMarkerPress}/>
 
      </div>
 

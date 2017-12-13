@@ -25,6 +25,9 @@ import Settings from './containers/Settings';
 import PlaceOrder from './containers/PlaceOrder';
 import Events from './containers/Events';
 import MapViewBranches from './containers/MapViewBranches';
+import Branch from './containers/Branch';
+import SignUp from './containers/SignUp';
+import Smoothie from './containers/Smoothie';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -69,6 +72,10 @@ render((
       <Route path="placeOrder" component={PlaceOrder}/>
       <Route path="events" component={Events}/>
       <Route path="mapViewBranches" component={MapViewBranches}/>
+      <Route path="branch/:branchId"component={Branch}/>
+      <Route path="signUp"component={SignUp}/>
+      <Route path="smoothie/:smoothieId"component={Smoothie}/>
+
     </Route>
   </Router>
 ), document.getElementById('root'));
