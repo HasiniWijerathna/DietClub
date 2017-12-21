@@ -17,7 +17,16 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import {blue500, red500, grey50} from 'material-ui/styles/colors';
+import MediaQuery from 'react-responsive';
+import {List, ListItem} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import Avatar from 'material-ui/Avatar';
 
+import FileFolder from 'material-ui/svg-icons/file/folder';
+import ActionAssignment from 'material-ui/svg-icons/action/assignment';
+import {yellow600} from 'material-ui/styles/colors';
+import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
+import ActionInfo from 'material-ui/svg-icons/action/info';
 /**
  * Representing the header bar
  */
@@ -194,26 +203,26 @@ class HeaderBar extends Component {
     let open = this.state.open;
 
     return (
-      <div style={headerContainerStyle}>
-        <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
-          <MenuItem onClick={navaigateToHome}>Home</MenuItem>
-          <MenuItem onClick={navaigateToMenu}>Menu</MenuItem>
-          <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
-          <MenuItem onClick={navaigateToEvents}>Events</MenuItem>
-          <MenuItem onClick={navaigateToNewsletters}>Newsletters</MenuItem>
-          <MenuItem onClick={navaigateToMapView}>Find Us map
-          </MenuItem>
-          <MenuItem onClick={navaigateToAboutUs}>About Us</MenuItem>
-          <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
-          <MenuItem onClick={navaigateToPlaceOrder}>Place Order</MenuItem>
-          <MenuItem onClick={navaigateToQRCode}>Scan It</MenuItem>
-        </Drawer>
+        <div style={headerContainerStyle}>
+          <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
+            <MenuItem onClick={navaigateToHome}>Home</MenuItem>
+            <MenuItem onClick={navaigateToMenu}>Menu</MenuItem>
+            <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
+            <MenuItem onClick={navaigateToEvents}>Events</MenuItem>
+            <MenuItem onClick={navaigateToNewsletters}>Newsletters</MenuItem>
+            <MenuItem onClick={navaigateToMapView}>Find Us map
+            </MenuItem>
+            <MenuItem onClick={navaigateToAboutUs}>About Us</MenuItem>
+            <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
+            <MenuItem onClick={navaigateToPlaceOrder}>Place Order</MenuItem>
+            <MenuItem onClick={navaigateToQRCode}>Scan It</MenuItem>
+          </Drawer>
 
-        <IconButton onClick={handleToggle}>
-          <ActionViewHeadline color={grey50} hoverColor={grey50} onClick={handleToggle}/>
-        </IconButton>
-      </div>
-    )
+          <IconButton onClick={handleToggle}>
+            <ActionViewHeadline color={grey50} hoverColor={grey50} onClick={handleToggle}/>
+          </IconButton>
+        </div>
+)
   }
 }
 

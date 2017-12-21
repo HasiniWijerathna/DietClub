@@ -7,6 +7,8 @@ import {grey900, grey700, green500, yellow600
 
 } from 'material-ui/styles/colors';
 
+import MediaQuery from 'react-responsive';
+
 const primaryColor = '#00BF9A';
 
 const muiTheme = getMuiTheme({
@@ -21,11 +23,49 @@ const muiTheme = getMuiTheme({
 const App = ({children}) => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div>
-      <HeaderBar/>
-      <section>
-        {children || 'Diat Club is loading...'}
-      </section>
+
+          <div>
+            <div id="player">
+              <MediaQuery query="(min-device-width: 768px)">
+                <div>
+                  hvfhgvjgvghvgh
+                  <section>
+                    {children || 'Diat Club is loading...'}
+                  </section>
+                </div>
+              </MediaQuery>
+              <MediaQuery query="(max-device-width: 480px)">
+                <div>
+                  <HeaderBar/>
+                  <section>
+                    {children || 'Diat Club is loading...'}
+                  </section>
+                </div>
+              </MediaQuery>
+              <MediaQuery query="(min-device-width: 667px)">
+                <div>
+                  <section>
+                    {children || 'Diat Club is loading...'}
+                  </section>
+                </div>
+              </MediaQuery>
+            </div>
+          </div>
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   </MuiThemeProvider>
 );
 
