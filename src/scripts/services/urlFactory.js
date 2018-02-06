@@ -9,6 +9,12 @@ const loginURL = () => url(BASE, 'auth/login');
 /* URL for Registration page */
 const registerURL = () => url(BASE, 'auth/register');
 
+/* URL for send email page */
+const sendMail = () => url(BASE, 'mail/send');
+
+/* URL for payment page */
+const purchase = () => url(BASE, 'payment');
+
 /**
 * Returns the modelURL
 * @param  {String} modelName   The model name
@@ -37,4 +43,4 @@ const modelLikeURL = (modelURL) => {
 };
 
 
-export {loginURL, registerURL, modelURL, modelLikeURL};
+export {loginURL, registerURL, modelURL, modelLikeURL, sendMail, purchase};

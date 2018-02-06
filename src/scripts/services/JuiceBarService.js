@@ -40,36 +40,36 @@ const smoothies = [{
 ];
 
 const juices = [{
-    id: 1,
+    id: 11,
     name: 'Berry Smoothie',
     price: 200,
     image: 'https://www.joejuice.com/media/2337/pickmeofhindbaer.jpg?&width=800&quality=80',
   }, {
-    id: 2,
+    id: 12,
     name: 'Blueberry Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2355/energizer.jpg?&width=640&quality=80',
   },
   {
-    id: 3,
+    id: 13,
     name: 'Papaya Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2334/ironman.jpg?&width=640&quality=80',
   },
   {
-    id: 4,
+    id: 14,
     name: 'Almond Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2331/hangoverheaven.jpg?&width=640&quality=80',
   },
   {
-    id: 5,
+    id: 15,
     name: 'Red Velvet Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2318/cshot.jpg?&width=640&quality=80',
   },
   {
-    id: 6,
+    id: 16,
     name: 'Berry Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2340/sweet-beet.jpg?&width=640&quality=80',
@@ -77,72 +77,72 @@ const juices = [{
 ];
 
 const shakes = [{
-    id: 1,
+    id: 21,
     name: 'The Sweet',
     price: 200,
     image: 'https://www.joejuice.com/media/2658/sweetjoegurt.jpg?&width=800&quality=80',
   }, {
-    id: 2,
+    id: 22,
     name: 'Blueberry Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2659/sweetjoegurtraspberry.jpg?&width=800&quality=80',
   },
   {
-    id: 3,
+    id: 23,
     name: 'Veggie Focus',
     price: 300,
     image: 'https://www.joejuice.com/media/2657/bittersweetjoegurt.jpg?&width=800&quality=80',
   },
   {
-    id: 4,
+    id: 24,
     name: 'Cherry Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2664/thenaturalborn.jpg?&width=800&quality=80',
   },
   {
-    id: 5,
+    id: 25,
     name: 'Velvet Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2317/energyshake.jpg?&width=800&quality=80',
   },
   {
-    id: 6,
+    id: 26,
     name: 'Ice Joegurt',
     price: 300,
     image: 'https://www.joejuice.com/media/2319/easy-shake.jpg?&width=800&quality=80',
   },
   {
-    id: 7,
+    id: 27,
     name: 'Ve-Gein Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2621/ve-gain.jpg?&width=800&quality=80',
   },
   {
-    id: 8,
+    id: 28,
     name: 'Super Shake',
     price: 300,
     image: 'https://www.joejuice.com/media/2618/supershake.jpg?&width=800&quality=80',
   },
   {
-    id: 9,
+    id: 29,
     name: 'Velvet Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2336/lemonshake.jpg?&width=800&quality=80',
   },
   {
-    id: 10,
+    id: 30,
     name: 'Lemon Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2319/easy-shake.jpg?&width=800&quality=80',
   },
   {
-    id: 11,
+    id: 31,
     name: 'Choco Smoothie',
     price: 300,
     image: 'https://www.joejuice.com/media/2615/chokoshake.jpg?&width=800&quality=80',
   },
   {
-    id: 12,
+    id: 32,
     name: 'Berry Shake',
     price: 300,
     image: 'https://www.joejuice.com/media/2354/powershake.jpg?&width=800&quality=80',
@@ -150,39 +150,83 @@ const shakes = [{
 ];
 
 const salads = [{
-    id: 1,
+    id: 41,
     name: 'Turkey',
     price: 200,
     image: 'https://www.joejuice.com/media/2344/turkey-01.jpg?&width=800&quality=80',
   }, {
-    id: 2,
+    id: 42,
     name: 'Tunacado',
     price: 300,
     image: 'https://www.joejuice.com/media/2339/tunacado.jpg?&width=800&quality=80',
   },
   {
-    id: 3,
+    id: 43,
     name: 'joes Club',
     price: 300,
     image: 'https://www.joejuice.com/media/2333/joes-club.jpg?&width=800&quality=80',
   },
   {
-    id: 4,
+    id: 44,
     name: 'Serrando',
     price: 300,
     image: 'https://www.joejuice.com/media/2341/serano.jpg?&width=800&quality=80',
   },
   {
-    id: 5,
+    id: 45,
     name: 'Spicy Tuna',
     price: 300,
     image: 'https://www.joejuice.com/media/2342/spicy-tuna.jpg?&width=800&quality=80',
   },
   {
-    id: 6,
+    id: 46,
     name: 'Avocado',
     price: 300,
     image: 'https://www.joejuice.com/media/2310/avocado.jpg?&width=800&quality=80',
+  }
+];
+
+const aboutUs = [{
+    id: 1,
+    name: 'Jullie',
+    fullName: 'Jullie Collins',
+    branch: 'Diet Club - Wattala',
+    image: 'https://i.pinimg.com/originals/3f/1c/43/3f1c43abc5f2a07817903b99bb8d8b36.jpg',
+  }, {
+    id: 2,
+    name: 'Kate',
+    fullName: 'Kate Wright',
+    branch: 'Diet Club - Union Place',
+    image: 'http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B850600000578-3605456-image-m-32_1464040491071.jpg',
+  },
+  {
+    id: 3,
+    name: 'Jackie',
+    fullName: 'Jackie Davies',
+    branch: 'Diet Club - Malabe',
+    image: 'http://3.bp.blogspot.com/-I-EqqKOoYRY/UDyEoMdRDMI/AAAAAAAAAGI/lFnyXN3NZP4/s1600/devushka-s-tonnelyami-v-ushah.jpg',
+
+  },
+  {
+    id: 4,
+    name: 'Anne',
+    fullName: 'Anne Brown',
+    branch: 'Diet Club - Nugegoda',
+    image: 'https://cdn.shopify.com/s/files/1/1961/4945/files/positive-effects-of-natural-energy-supplements-on-brain.jpg?10312441339488872752',
+  },
+  {
+    id: 5,
+    name: 'Json',
+    fullName: 'Json Williams',
+    branch: 'Diet Club - Paliyagoda',
+    image: 'http://static1.belezaextraordinaria.com.br/articles/2/13/26/2/@/160782-qual-sera-o-tipo-de-shampoo-ideal-para-o-article_news-2.jpg',
+  },
+  {
+    id: 6,
+    name: 'Mike',
+    fullName: 'Mike Taylor',
+    branch: 'Diet Club - Dehiwala',
+    image: 'https://will.illinois.edu/images/uploads/34815/credit-kainaz_amaria.jpg',
   }
 ];
 
@@ -253,21 +297,21 @@ const branches = [{
     openingHours: 'Open Untill 11.00 PM',
     contact: '0117 739 729',
     events: [6],
-    image: 'https://i.pinimg.com/564x/60/22/fc/6022fc65e04389ab3355223ee8575f90--fresh-bar-design-juice-bar-design-ideas.jpg',
+    image: 'https://media-cdn.tripadvisor.com/media/photo-s/06/4e/13/cd/inside-counter.jpg',
   },
   {
     id: 3,
-    name: 'Diet Club - Malabe',
+    name: 'Diet Club - Nugegoda',
     member: 'Jackie',
-    address: 'B240, Sri Jayawardenepura Kotte',
+    address: 'B240, Nawala Rd, Kotte',
     openingHours: 'Open Untill 11.00 PM',
     contact: '0117 739 729',
     events: [4],
-    image: 'http://www.ccs-ind.com/content/images/2014/12/nekter-overall-shop.JPG',
+    image: 'http://loveiscolorful.com/wp-content/uploads/2014/10/28-1.png',
   },
   {
     id: 4,
-    name: 'Diet Club - Nugegoda',
+    name: 'Diet Club - Malabe',
     member: 'Anne',
     address: '108B George R De Silva Mawatha, Colombo 00130',
     openingHours: 'Open Untill 11.00 PM',
@@ -277,23 +321,23 @@ const branches = [{
   },
   {
     id: 5,
-    name: 'Diet Club - Paliyagoda',
-    member: 'Kia',
+    name: 'Diet Club - Wattala',
+    member: 'Json',
     address: '197 High Level Rd, Nugegoda',
     openingHours: 'Open Untill 11.00 PM',
     contact: '0117 739 729',
     events: [2],
-    image: 'https://www.wellandgood.com/wp-content/uploads/2013/10/Grass-Roots-Juicery.jpg',
+    image: 'https://www.beyondthecreek.com/wp-content/uploads/2014/11/nekter-juice-bar-blackhawk-inside.jpg',
   },
   {
     id: 6,
     name: 'Diet Club - Dehiwala',
-    member: 'Misha',
+    member: 'Mike',
     address: '75 Attidiya Rd, Dehiwala-Mount Lavinia',
     openingHours: 'Open Untill 11.00 PM',
     contact: '0117 739 729',
     events: [1],
-    image: 'https://static1.squarespace.com/static/544607fee4b0664ae93e92db/t/55431bf2e4b05386c5561710/1430461429529/IMG_0974.JPG?format=1500w',
+    image: 'https://pbs.twimg.com/media/CCNILZpVIAAq8Mj.jpg',
   },
 ];
 
@@ -358,24 +402,198 @@ const events = [{
   },
 ];
 
+const profile = {
+  id: 1,
+  name: '',
+  userName: '',
+  password: '',
+  email: '',
+  image: '',
+  points: 0,
+  favePeople: [],
+  favBranches: [],
+  faveNews: [],
+  faveEvent: [],
+  cartItems: []
+}
+
+const newProfile = {
+  id: 0,
+  name: '',
+  userName: '',
+  password: '',
+  email: '',
+  image: '',
+  points: 0,
+  favePeople: [],
+  favBranches: [],
+  faveNews: [],
+  faveEvent: [],
+  cartItems: []
+}
+
+
+const users = [{
+    id: 1,
+    name: 'David Mathews',
+    userName: 'David',
+    password: '123456',
+    email: 'David@gmail.com',
+    image: 'https://grainimages.com/wp-content/uploads/2016/12/GREGProfile001.jpg',
+    points: 4,
+    favePeople: [1],
+    favBranches: [1],
+    faveNews: [1],
+    faveEvent: [1],
+    cartItems: []
+  },
+  {
+    id: 2,
+    name: 'Kate Mathews',
+    userName: 'kate',
+    password: '123456',
+    email: 'kate@gmail.com',
+    image: 'https://grainimages.com/wp-content/uploads/2016/12/GREGProfile001.jpg',
+    points: 0,
+    favePeople: [3],
+    favBranches: [3],
+    faveNews: [3],
+    faveEvent: [3],
+    cartItems: []
+  }
+];
+
+const searchUser = (userName, password) => {
+  //  localStorage.setItem('users', JSON.stringify(getUsers()));
+  let results = localStorage.getItem('users');
+  let users = JSON.parse(results);
+  console.log('local existance');
+  console.log(JSON.parse(localStorage.getItem('users')));
+  let loginSucsses = false;
+  let userProfile = getProfile();
+  const error = 'error';
+  users.forEach((profile) => {
+
+    console.log(userName);
+    if (profile.userName === userName && profile.password === password) {
+      console.log('Login done');
+      userProfile.id = profile.id,
+        userProfile.name = profile.name,
+        userProfile.userName = profile.userName,
+        userProfile.password = profile.password,
+        userProfile.email = profile.email,
+        userProfile.image = profile.image,
+        userProfile.points = profile.points,
+        userProfile.favePeople = profile.favePeople,
+        userProfile.favBranches = profile.favBranches,
+        userProfile.faveNews = profile.faveNews,
+        userProfile.faveEvent = profile.faveEvent,
+        userProfile.cartItems = profile.cartItems
+      //profile = userProfile;
+
+      localStorage.setItem('userId', JSON.stringify(profile.id));
+      const id = localStorage.getItem('userId');
+
+      localStorage.setItem('user', JSON.stringify(userProfile));
+      const user = localStorage.getItem('user');
+
+      console.log(id);
+      loginSucsses = true;
+      return 'Login Success';
+    } else {
+      console.log('Invalid credentials');
+      return 'Invalid credentials';
+    }
+  });
+  return loginSucsses;
+};
+
+const getnewUserId = () => {
+  console.log(JSON.stringify(getUsers()));
+  // setter
+
+  const results = localStorage.getItem('users');
+  const users = JSON.parse(results);
+  console.log(users);
+  const newUserId = users.length + 1;
+  return newUserId;
+}
+
+const updateUser = (id) => {
+  const resultsUsers = localStorage.getItem('users');
+  const users = JSON.parse(resultsUsers);
+
+  const resultsUser = localStorage.getItem('user');
+  const user = JSON.parse(resultsUser);
+
+  users.map((updateUser) => {
+    if (updateUser.id == id) {
+      updateUser.id = user.id,
+        updateUser.name = user.name,
+        updateUser.userName = user.userName,
+        updateUser.password = user.password,
+        updateUser.email = user.email,
+        updateUser.image = user.image,
+        updateUser.points = user.points,
+        updateUser.favePeople = user.favePeople,
+        updateUser.favBranches = user.favBranches,
+        updateUser.faveNews = user.faveNews,
+        updateUser.faveEvent = user.faveEvent,
+        updateUser.cartItems = user.cartItems
+      console.log(user);
+
+
+    }
+  });
+
+  localStorage.setItem('users', JSON.stringify(users));
+
+  const resultsdsdfUsers = localStorage.getItem('users');
+  const uerwerers = JSON.parse(resultsdsdfUsers);
+  console.log(uerwerers);
+
+
+}
+
 /**
  * Returns all smoothie objects
  * @return {Array} The Smoothie array
  */
 const getAllSmoothies = () => smoothies;
 
-const getAllNewsletters= () => newsletters;
+const getAllNewsletters = () => newsletters;
 
-const getAllBranches= () => branches;
+const getAllBranches = () => branches;
 
-const getAllEvents= () => events;
+const getAllEvents = () => events;
 
-const getAllJuices= () =>juices;
+const getAllJuices = () => juices;
 
-const getAllShakes= () => shakes;
+const getAllShakes = () => shakes;
 
-const getAllSalads= () => salads;
+const getAllSalads = () => salads;
+
+const getAllaboutUs = () => aboutUs;
+
+const getProfile = () => profile;
+
+const getUsers = () => users;
+
+const getNewProfile = () => newProfile;
 
 export {
-  getAllSmoothies, getAllNewsletters, getAllBranches, getAllEvents, getAllJuices, getAllShakes, getAllSalads
+  getAllSmoothies,
+  getAllNewsletters,
+  getAllBranches,
+  getAllEvents,
+  getAllJuices,
+  getAllShakes,
+  getAllSalads,
+  getAllaboutUs,
+  getProfile,
+  getUsers,
+  getNewProfile,
+  searchUser,
+  getnewUserId,
+  updateUser
 };

@@ -10,6 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Popup from 'react-popup';
 import Snackbar from 'material-ui/Snackbar';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {getnewUserId, getProfile, getUsers} from '../services/juiceBarService';
 /**
  * Representing the logic of user registration
  */
@@ -30,7 +31,7 @@ class Registration extends BaseContainer {
 
     return error;
   }
-/**
+  /**
 * Validate name
 * @param  {String} name The username
 * @return {String}      Relevent error of the incorrect username
@@ -47,7 +48,7 @@ class Registration extends BaseContainer {
     return error;
   }
 
-/**
+  /**
  * validate email
  * @param  {String} email The email
  * @return {String}       Relevent error of the incorrect email
@@ -64,7 +65,7 @@ class Registration extends BaseContainer {
     return error;
   }
 
-/**
+  /**
 * Validate password
 * @param  {String} password        The password
 * @param  {String} confirmPassword The confirmPassword
@@ -88,7 +89,7 @@ class Registration extends BaseContainer {
     return {passwordError, confirmPasswordError};
   }
 
-/**
+  /**
 * Class constructor
 * @param {Object} props User define component
 */
@@ -100,8 +101,9 @@ class Registration extends BaseContainer {
         username: '',
         name: '',
         email: '',
+        image: '',
         password: '',
-        confirmPassword: '',
+        confirmPassword: ''
       },
       formValid: false,
       error: {
@@ -109,25 +111,25 @@ class Registration extends BaseContainer {
         name: Registration.validateName(),
         email: Registration.validateEmail(),
         password: Registration.validatePassword().passwordError,
-        confirmPassword: Registration.validatePassword().confirmPasswordError,
+        confirmPassword: Registration.validatePassword().confirmPasswordError
       },
       focused: {
         username: false,
         name: false,
         email: false,
         password: false,
-        confirmPassword: false,
+        confirmPassword: false
       },
       errorMessage: {
         open: false,
-        message: '',
-      },
+        message: ''
+      }
     };
 
     this.validateAll = this.validateAll.bind(this);
   }
 
-/**
+  /**
 * Event changer for the username
 * @param  {String} changeEvent Changer event of the username
 */
@@ -139,11 +141,7 @@ class Registration extends BaseContainer {
 
     user.username = username;
     error.username = usernameError;
-    this.setState({
-      formValid: this.validateAll(),
-      user,
-      error,
-    });
+    this.setState({formValid: this.validateAll(), user, error});
   }
 
   /**
@@ -159,14 +157,10 @@ class Registration extends BaseContainer {
     user.name = newName;
     error.name = nameError;
 
-    this.setState({
-      formValid: this.validateAll(),
-      user,
-      error,
-    });
+    this.setState({formValid: this.validateAll(), user, error});
   }
 
-/**
+  /**
 * Event changer for the email
 * @param  {String} changeEvent Changer event of the email
 */
@@ -179,14 +173,23 @@ class Registration extends BaseContainer {
     user.email = newEmail;
     error.email = emailError;
 
-    this.setState({
-      formValid: this.validateAll(),
-      user,
-      error,
-    });
+    this.setState({formValid: this.validateAll(), user, error});
   }
 
-/**
+  /**
+* Event changer for the image
+* @param  {String} changeEvent Changer event of the email
+*/
+  onChangeImage(changeEvent) {
+    const newImage = `${changeEvent.target.value}`;
+    const user = this.state.user;
+
+    user.image = newImage;
+
+    this.setState({user});
+  }
+
+  /**
 * Event changer for the password
 * @param  {String} changeEvent Changer event of the password
 */
@@ -201,14 +204,10 @@ class Registration extends BaseContainer {
     error.password = validationErrors.passwordError;
     error.confirmPassword = validationErrors.confirmPasswordError;
 
-    this.setState({
-      formValid: this.validateAll(),
-      user,
-      error,
-    });
+    this.setState({formValid: this.validateAll(), user, error});
   }
 
-/**
+  /**
 * Sends a POST Request to register the user
 */
   onConfirm() {
@@ -216,28 +215,49 @@ class Registration extends BaseContainer {
       username: this.state.user.username,
       name: this.state.user.name,
       email: this.state.user.email,
-      password: this.state.user.password,
+      password: this.state.user.password
     };
-    this.makePOSTrequest(registerURL(), data)
-      .then((response) => {
-        const session = {
-          authenticated: true,
-          token: response.data.token,
-        };
-        setSession(session);
-        browserHistory.push('/');
-      })
-      .catch((error) => {
-        this.setState({
-          errorMessage: {
-            open: true,
-            message: 'Email already exist!',
-          },
-        });
-      });
+
+   let results = localStorage.getItem('users');
+   let user = localStorage.getItem('user');
+   let users = JSON.parse(results);
+    const newProfile = {
+      id: getnewUserId(),
+      name: this.state.user.name,
+      userName: this.state.user.username,
+      password: this.state.user.password,
+      email: this.state.user.email,
+      image: this.state.user.image ? this.state.user.image : 'http://animalnewyork.com/wp-content/uploads/sad-facebook.jpg' ,
+      points: 0,
+      favePeople: [],
+      favBranches: [],
+      faveNews: [],
+      faveEvent: [],
+      cartItems: []
+    }
+
+    users.push(newProfile);
+    localStorage.setItem('users', JSON.stringify(users));
+    console.log(JSON.parse(localStorage.getItem('users')));
+    localStorage.setItem('user', JSON.stringify(newProfile));
+    console.log(JSON.parse(localStorage.getItem('user')));
+    browserHistory.push('/profile');
+
+
+  // getUsers();
+  // localStorage.setItem('users', JSON.stringify(getUsers()));
+  // localStorage.setItem('user', JSON.stringify(newProfile));
+  // let results = localStorage.getItem('users');
+  // let resultsUser = localStorage.getItem('user');
+  // let users = JSON.parse(results);
+  // let user = JSON.parse(resultsUser);
+  // console.log(users);
+  // console.log(user);
+  // users.push(newProfile);
+  // console.log(users);
   }
 
-/**
+  /**
 * Checks if the mandotory fields are empty
 * @param {String} elementName The selected text field
 */
@@ -246,13 +266,11 @@ class Registration extends BaseContainer {
 
     if (!focused[elementName]) {
       focused[elementName] = true;
-      this.setState({
-        focused,
-      });
+      this.setState({focused});
     }
   }
 
-/**
+  /**
 * Checks the password with the confirmPassword
 * @param {Event} changeEvent The confirm password
 */
@@ -267,20 +285,15 @@ class Registration extends BaseContainer {
     error.password = validationErrors.passwordError;
     error.confirmPassword = validationErrors.confirmPasswordError;
 
-    this.setState({
-      formValid: this.validateAll(),
-      user,
-      error,
-    });
+    this.setState({formValid: this.validateAll(), user, error});
   }
 
-/**
+  /**
 * Validates the user credentials
 * @return {Boolean} valied user credentials
 */
   validateAll() {
-    return !this.state.error.name && !this.state.error.email &&
-      !this.state.error.password&& !this.state.error.confirmPassword;
+    return !this.state.error.name && !this.state.error.email && !this.state.error.password && !this.state.error.confirmPassword;
   }
 
   /**
@@ -290,18 +303,19 @@ class Registration extends BaseContainer {
     this.setState({
       errorMessage: {
         open: false,
-        message: '',
-      },
+        message: ''
+      }
     });
   }
 
-/**
+  /**
 * Describes the elements on the registration page
 * @return {String} HTML elements
 */
   render() {
     const onChangeName = this.onChangeName.bind(this);
     const onChangeUsername = this.onChangeUsername.bind(this);
+    const onChangeImage = this.onChangeImage.bind(this);
     const onChangeEmail = this.onChangeEmail.bind(this);
     const onChangePassword = this.onChangePassword.bind(this);
     const OnConfirmPassword = this.OnConfirmPassword.bind(this);
@@ -314,87 +328,47 @@ class Registration extends BaseContainer {
     const onPasswordFocusOut = this.setFocus.bind(this, 'password');
     const OnConfirmPasswordFocusOut = this.setFocus.bind(this, 'confirmPassword');
 
-    return (
-      <div>
-        <Snackbar
-         open={this.state.errorMessage.open}
-         message={this.state.errorMessage.message}
-         autoHideDuration={4000}
-         onRequestClose={handleRequestClose}
-       />
-        <Popup />
+    return (<div>
+      <Card>
+        <CardText>
+          <center>Please enter yout login details to proceed</center>
+        </CardText>
+        <form>
+          <div id="textForm">
+            <TextField floatingLabelText="Username" onChange={onChangeUsername} value={this.state.user.username} errorText={this.state.focused.username && this.state.error.username} onBlur={onUsernameFocusOut}/><br/>
+          </div>
+          <div id="textForm">
+            <TextField floatingLabelText="Name" onChange={onChangeName} value={this.state.user.name} errorText={this.state.focused.name && this.state.error.name} onBlur={onNameFocusOut}/><br/>
+          </div>
+          <div id="textForm">
+            <TextField floatingLabelText="Eamil" onChange={onChangeEmail} value={this.state.user.email} errorText={this.state.focused.email && this.state.error.email} onBlur={onEmailFocusOut}/><br/>
+          </div>
+          <div id="textForm">
+            <TextField floatingLabelText="Profile image URL" onChange={onChangeImage} value={this.state.user.image}/><br/>
+          </div>
+          <div id="textForm">
+            <TextField floatingLabelText="Password" type="password" onChange={onChangePassword} value={this.state.user.password} errorText={this.state.focused.password && this.state.error.password} onBlur={onPasswordFocusOut}/><br/>
+          </div>
+          <div id="textForm">
+            <TextField floatingLabelText="Confirm Password" type="password" onChange={OnConfirmPassword} value={this.state.user.confirmPassword} errorText={this.state.focused.confirmPassword && this.state.error.confirmPassword} onBlur={OnConfirmPasswordFocusOut}/><br/>
+          </div>
+        </form>
+        <CardText></CardText>
+        <div></div>
+
         <div>
-          <hgroup>
-            <Card>
-              <CardHeader/>
-              <hgroup>
-                <formgroup>
-                  <h3>Create your Account</h3>
-                </formgroup>
-              </hgroup>
-              <form>
-                <img className="logo" alt="loginlogo"/>
-                <CardActions>
-                  <div>
-                    <TextField
-                      floatingLabelText="Username"
-                      value={this.state.user.username}
-                      errorText={this.state.focused.username && this.state.error.username}
-                      onChange={onChangeUsername}
-                      onBlur={onUsernameFocusOut}
-                      />
-                  </div>
-                  <div>
-                    <TextField
-                      floatingLabelText="Name"
-                      value={this.state.user.name}
-                      errorText={this.state.focused.name && this.state.error.name}
-                      onChange={onChangeName}
-                      onBlur={onNameFocusOut}
-                      />
-                  </div>
-                  <div>
-                    <TextField
-                      floatingLabelText="Email"
-                      value={this.state.user.email}
-                      errorText={this.state.focused.email && this.state.error.email}
-                      onChange={onChangeEmail}
-                      onBlur={onEmailFocusOut}
-                      />
-                  </div>
-                  <div>
-                    <TextField
-                      floatingLabelText="Password"
-                      value={this.state.user.password}
-                      errorText={this.state.focused.password && this.state.error.password}
-                      type="password"
-                      onChange={onChangePassword}
-                      onBlur={onPasswordFocusOut}
-                      />
-                  </div>
-                  <div>
-                    <TextField
-                      floatingLabelText="Confirm Password"
-                      value={this.state.user.confirmPassword}
-                      errorText={this.state.focused.confirmPassword && this.state.error.confirmPassword}
-                      type="password"
-                      onChange={OnConfirmPassword}
-                      onBlur={OnConfirmPasswordFocusOut}
-                      />
-                  </div>
-                </CardActions>
-                <div>
-                  <RaisedButton
-                    label="Create Account"
-                    disabled={!this.state.formValid}
-                    onClick={onConfirm} /></div>
-              </form>
-              <CardText ></CardText>
-            </Card>
-          </hgroup>
+          <div id="cardButton">
+            <center>
+              <RaisedButton label="Create Account" buttonStyle={{
+                  borderRadius: 25
+                }} style={{
+                  borderRadius: 25
+                }} labelColor={'#FFFFFF'} backgroundColor={'#00BF9A'} onClick={onConfirm} disabled={!this.state.formValid}/>
+            </center>
+          </div>
         </div>
-      </div>
-    );
+      </Card>
+    </div>);
   }
 }
 export default Registration;

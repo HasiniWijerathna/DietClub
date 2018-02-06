@@ -20,7 +20,7 @@ import Menu from './containers/Menu';
 import AboutUs from './containers/AboutUs';
 import MyOrders from './containers/MyOrders';
 import Rewards from './containers/Rewards';
-import QRCode from './containers/QRCode';
+import QRCodeGenerator from './containers/QRCodeGenerator';
 import Settings from './containers/Settings';
 import PlaceOrder from './containers/PlaceOrder';
 import Events from './containers/Events';
@@ -28,6 +28,12 @@ import MapViewBranches from './containers/MapViewBranches';
 import Branch from './containers/Branch';
 import SignUp from './containers/SignUp';
 import Smoothie from './containers/Smoothie';
+import Profile from './containers/Profile';
+import FavItems from './containers/FavItems';
+import Login from './containers/Login';
+import PaymentForm from './containers/PaymentForm';
+import Registration from './containers/Registration';
+import JqueryUi from './containers/JqueryUi';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -67,7 +73,7 @@ render((
       <Route path="aboutUs" component={AboutUs}/>
       <Route path="myOrders" component={MyOrders}/>
       <Route path="rewards" component={Rewards}/>
-      <Route path="QRCode" component={QRCode}/>
+      <Route path="QRCodeGenerator" component={QRCodeGenerator}/>
       <Route path="settings" component={Settings}/>
       <Route path="placeOrder" component={PlaceOrder}/>
       <Route path="events" component={Events}/>
@@ -75,7 +81,12 @@ render((
       <Route path="branch/:branchId"component={Branch}/>
       <Route path="signUp"component={SignUp}/>
       <Route path="smoothie/:smoothieId"component={Smoothie}/>
-
+      <Route path="profile"component={Profile}/>
+      <Route path="favItems"component={FavItems}/>
+      <Route path="login"component={Login}/>
+      <Route path="paymentForm"component={PaymentForm}/>
+      <Route path="registration"component={Registration}/>
+      <Route path="jqueryUi"component={JqueryUi}/>
     </Route>
   </Router>
 ), document.getElementById('root'));

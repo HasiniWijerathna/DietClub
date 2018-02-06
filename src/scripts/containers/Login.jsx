@@ -1,71 +1,52 @@
 import React from 'react';
-import {browserHistory} from 'react-router';
 import {setSession} from '../services/SessionService';
 import {loginURL} from '../services/urlFactory';
+import {searchUser, getProfile, getUsers} from '../services/juiceBarService';
 import BaseContainer from './BaseContainer';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import {Card, CardText} from 'material-ui/Card';
-
-const snackBarStyleMap = {
-  success: {
-    bodyStyle: {
-      'backgroundColor': '#66BB6A',
-    },
-    contentStyle: {
-      color: 'black',
-    },
-  },
-  error: {
-    bodyStyle: {
-      'backgroundColor': '#C62828',
-    },
-    contentStyle: {
-      color: 'black',
-    },
-  },
-  warning: {
-    bodyStyle: {
-      'backgroundColor': '#FFF176',
-    },
-    contentStyle: {
-      color: 'black',
-    },
-  },
-};
+import {browserHistory} from 'react-router';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
 /**
 * Representing the logic of user login function
 */
 class Login extends BaseContainer {
-/**
+  /**
 * Class constructor
 * @param {Object} props User define component
 */
   constructor(props) {
     super(props);
 
-    let pathname = '/';
-    if (props.location.state && props.location.state.nextPathname) {
-      pathname = props.location.state.nextPathname;
-    }
-
     this.state = {
-      nextPathname: pathname,
+      invalid : false,
       user: {
         name: '',
-        password: '',
+        password: ''
       },
-      errorMessage: {
-        open: false,
-        message: '',
-      },
-    };
+      currentUser: ''
+    }
+
+  }
+  onConfirm() {
+
+    const currentUser = searchUser(this.state.user.name, this.state.user.password);
+    if (currentUser) {
+      this.setState({currentUser: getProfile()});
+
+      browserHistory.push('/profile');
+    } else {
+  this.setState({invalid:true});
+    }
+
   }
 
-/**
+  /**
 * Event changer for the username
 * @param  {String} changeEvent Changer event of the username
 */
@@ -75,65 +56,35 @@ class Login extends BaseContainer {
 
     user.name = newName;
 
-    this.setState({
-      user,
-    });
+    this.setState({user});
   }
 
-/**
-* Event changer for the password
-* @param  {String} changeEvent Changer event of the password
-*/
+  /**
+  * Event changer for the password
+  * @param  {String} changeEvent Changer event of the password
+  */
   onChangePassword(changeEvent) {
     const newPassword = changeEvent.target.value;
     const user = this.state.user;
 
     user.password = newPassword;
 
-    this.setState({
-      user,
-    });
-  }
-/**
-* Sends a POST Request to register the user
-*/
-  onConfirm() {
-    const data = {
-      username: this.state.user.name,
-      password: this.state.user.password,
-    };
-    this.makePOSTrequest(loginURL(), data)
-    .then((response) => {
-      const session = {
-        authenticated: true,
-        token: response.data.token,
-        user: response.data.user,
-      };
-      setSession(session);
-      browserHistory.push(this.state.nextPathname);
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: {
-          open: true,
-          message: 'Incorrect email or password',
-        },
-      });
-    });
+    this.setState({user});
   }
 
-/**
- * Hides the Snackbar
- */
-  handleRequestClose() {
-    this.setState({
-      errorMessage: {
-        open: false,
-        message: '',
-      },
-    });
+  /**
+    Navigate to Registration page
+    */
+  navigateReg() {
+    browserHistory.push('/registration');
   }
-/**
+
+  handleClose() {
+      this.setState({invalid:false});
+  }
+
+
+  /**
 * Describes the elements on the Post page
 * @return {String} HTML elements
 */
@@ -141,59 +92,55 @@ class Login extends BaseContainer {
     const onConfirm = this.onConfirm.bind(this);
     const onChangeName = this.onChangeName.bind(this);
     const onChangePassword = this.onChangePassword.bind(this);
-    const handleRequestClose = this.handleRequestClose.bind(this);
+    const navigateReg = this.navigateReg.bind(this);
+    const handleClose = this.handleClose.bind(this);
 
-    const snackBarStyle = {
-      marginBottom: '20px',
-      left: '20%',
-    };
+    return (<div>
+      <Dialog
+         modal={false}
+         open={this.state.invalid}
+          onRequestClose={handleClose}
+       >
+         Invalied credentials
+       </Dialog>
+      <Card>
+        <CardText>
+          <center>Please enter yout login details to proceed</center>
+        </CardText>
+        <form>
+          <div id="textForm">
+            <TextField floatingLabelText="Username" onChange={onChangeName}/><br/>
+            <TextField floatingLabelText="Password" type="password" onChange={onChangePassword}/>
+          </div>
+        </form>
+        <CardText></CardText>
+        <div>
+          <div id="cardButton">
+            <center>
+              <RaisedButton label="Login" onClick={onConfirm} buttonStyle={{
+                  borderRadius: 25
+                }} style={{
+                  borderRadius: 25
+                }} labelColor={'#FFFFFF'} backgroundColor={'#00BF9A'}/>
+            </center>
+          </div>
+        </div>
 
-    const buttonStyle = {
-      paddingTop: '5px',
-      paddingBottom: '5px',
-    };
-    return (
-      <div>
-        <Snackbar
-          open={this.state.errorMessage.open}
-          message={this.state.errorMessage.message}
-          autoHideDuration={4000}
-          onRequestClose={handleRequestClose}
-          style={snackBarStyle}
-          bodyStyle={snackBarStyleMap.error.bodyStyle}
-          contentStyle={snackBarStyleMap.error.contentStyle}
-          />
-        <Card>
-          <CardText></CardText>
-          <form>
-            <formgroup>
-              <hgroup>
-                <img className="logo" alt="loginlogo"/>
-                <TextField
-                  floatingLabelText="Username"
-                  value={this.state.user.name}
-                  onChange={onChangeName} />
-                <TextField
-                  floatingLabelText="Password"
-                  value={this.state.user.password}
-                  type="password"
-                  onChange={onChangePassword} />
+        <div>
+          <div id="cardButton">
+            <center>
+              <RaisedButton label="Create your account" onClick={navigateReg} buttonStyle={{
+                  borderRadius: 25
+                }} style={{
+                  borderRadius: 25
+                }} labelColor={'#FFFFFF'} backgroundColor={'#00BF9A'}/>
+            </center>
+          </div>
+        </div>
+      </Card>
 
-                <RaisedButton label="Login" onClick={onConfirm}/>
-                <h2>
-                  <RaisedButton label="Create your account"style={buttonStyle}/>
-                </h2>
-              </hgroup>
-            </formgroup>
-          </form>
-          <CardText></CardText>
-        </Card>
-      </div>
-    );
+    </div>);
   }
 }
-Login.propTypes = {
-  location: React.PropTypes.object.isRequired,
-};
 
 export default Login;

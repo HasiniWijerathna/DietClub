@@ -7,7 +7,7 @@ import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import {red500} from 'material-ui/styles/colors';
 
-import {getAllNewsletters} from '../services/juiceBarService';
+import {getAllNewsletters, updateUser} from '../services/juiceBarService';
 import FlatButton from 'material-ui/FlatButton';
 /**
 * Represents the view logic
@@ -29,16 +29,57 @@ class Newsletter extends BaseContainer {
 /**
  * Alert handle alert
  */
-handleOpen() {
-  this.setState({alertOpen: false});
+handleOpen(selectedNewsletter) {
+  // this.setState({alertOpen: true});
+  // const results = localStorage.getItem('user');
+  // let user = JSON.parse(results);
+  //
+  // user.faveEvent.push(selectedPerson);
+  // localStorage.setItem('user', JSON.stringify(user));
+  //   console.log(user);
+  // updateUser(user.id);
+  //   const personLiked = {
+  //     ...this.state.personLiked,
+  //     [selectedPerson.id]: true,
+  //   };
+  //
+  //   this.setState({personLiked});
+
+  this.setState({alertOpen: true});
+  const results = localStorage.getItem('user');
+  let user = JSON.parse(results);
+  console.log(selectedNewsletter);
+  user.faveNews.push(selectedNewsletter);
+  localStorage.setItem('user', JSON.stringify(user));
+  updateUser(user.id);
+    console.log(user);
 };
 
 /**
  * Alert handle alert
  */
-handleClose() {
-  this.setState({alertOpen: true});
+handleClose(selectedNewsletter) {
+  this.setState({alertOpen: false});
+  let removeNewsIndex = null;
+  const results = localStorage.getItem('user');
+  let user = JSON.parse(results);
+  user.faveNews.forEach((userNews, index) => {
+    if(userNews.id === selectedNewsletter.id) {
+      removeNewsIndex = index;
+      console.log('Must remove item number ' + index);
+    }
+  });
+   user.faveNews.splice(removeNewsIndex, 1 );
+   localStorage.setItem('user', JSON.stringify(user));
+     console.log(user);
+
 };
+
+addToFavorites(newsletter) {
+  const results = localStorage.getItem('user');
+  let user = JSON.parse(results);
+  console.log(newsletter);
+}
 
 /**
 * Describes the elements on the About Us page
@@ -47,9 +88,9 @@ handleClose() {
   render() {
   let newsletterView = null;
   let favouriteButton = null;
-  const handleOpen = this.handleOpen.bind(this);
-  const handleClose = this.handleClose.bind(this);
   const selectedNewsletter = this.state.newsletters[this.props.params.newsletterId];
+  const handleOpen = this.handleOpen.bind(this, selectedNewsletter);
+  const handleClose = this.handleClose.bind(this, selectedNewsletter);
 
   const iconButton = {};
 
@@ -61,7 +102,7 @@ handleClose() {
             <IconButton
                touch={true}
                style={iconButton}
-               onClick={handleOpen}
+               onClick={handleClose}
                color={red500}>
               <ActionFavorite color={red500}/>
             </IconButton>
@@ -75,7 +116,7 @@ handleClose() {
             <IconButton
                touch={true}
                style={iconButton}
-               onClick={handleClose}>
+               onClick={handleOpen}>
               <ActionFavoriteBorder color={red500}/>
             </IconButton>
           </div>

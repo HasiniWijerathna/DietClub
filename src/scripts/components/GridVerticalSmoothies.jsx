@@ -1,7 +1,7 @@
 import React from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 
-import {getAllShakes} from '../services/juiceBarService';
+import {getAllShakes, updateUser} from '../services/juiceBarService';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import {browserHistory} from 'react-router';
@@ -16,6 +16,9 @@ import {
   CardTitle,
   CardText
 } from 'material-ui/Card';
+import ActionHome from 'material-ui/svg-icons/action/home';
+import ShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
+
 
 /**
 * Represents the view logic
@@ -48,6 +51,7 @@ class GridVerticalSmoothies extends React.Component {
   handleClose() {
     this.setState({
       open: false,
+      loginAlert: false,
       cardViewSmoothie: {
         name: '',
         image: '',
@@ -56,20 +60,52 @@ class GridVerticalSmoothies extends React.Component {
     });
   }
 
+  handleCloseLoginAlert() {
+    this.setState({loginAlert: false});
+  };
+
+  addToCart(id) {
+    const results = localStorage.getItem('user');
+    let user = JSON.parse(results);
+    if (!user.name) {
+      browserHistory.push('/login');
+
+    } else {
+      user.cartItems.push(id);
+      localStorage.setItem('user', JSON.stringify(user));
+      updateUser(user.id);
+      console.log(user);
+    }
+
+  }
+
   /**
   * Handle the newsletter click event
   */
-    smoothieOnClick(id)  {
-      console.log(this.state.smoothies[id]);
+  smoothieOnClick(id) {
+    // console.log(this.state.smoothies[id]);
+    //
+    // this.setState({
+    //   open: true,
+    //   cardViewSmoothie: {
+    //     name: this.state.smoothies[id].name,
+    //     image: this.state.smoothies[id].image,
+    //     price: this.state.smoothies[id].price
+    //   }
+    // });
 
-      this.setState({
-        open: true,
-        cardViewSmoothie: {
-          name: this.state.smoothies[id].name,
-          image: this.state.smoothies[id].image,
-          price: this.state.smoothies[id].price,
-        }
-      });
+    const smoothies = this.state.smoothies.map((smoothie) => {
+      if(smoothie.id == id) {
+        this.setState({
+          open: true,
+          cardViewSmoothie: {
+            name: smoothie.name,
+            image: smoothie.image,
+            price: smoothie.price
+          }
+        });
+      }
+    });
   }
 
   /**
@@ -78,8 +114,7 @@ class GridVerticalSmoothies extends React.Component {
   */
   render() {
     const handleClose = this.handleClose.bind(this);
-    console.log(this.state.cardViewSmoothie.image);
-
+      const handleCloseLoginAlert = this.handleCloseLoginAlert.bind(this);
     const GridVerticalStyles = {
       root: {
         display: 'flex',
@@ -93,24 +128,49 @@ class GridVerticalSmoothies extends React.Component {
       }
     };
 
-    return (
+    const actions = [
+     <FlatButton
+       label="Cancel"
+       primary={true}
+       onClick={handleCloseLoginAlert}
+     />,
+     <FlatButton
+       label="Submit"
+       primary={true}
+       keyboardFocused={true}
+       onClick={handleCloseLoginAlert}
+     />,
+   ];
 
-      <div>
-        <Dialog modal={true} open={this.state.open} autoScrollBodyContent={true} onRequestClose={handleClose} bodyClassName={'smoothie-dialog-content'} repositionOnUpdate>
-          <div id="image-container" class="center-cropped" style={{backgroundImage: `url(${this.state.cardViewSmoothie.image})`}}></div>
-          <CardTitle title={this.state.cardViewSmoothie.name} subtitle={`Price ${this.state.cardViewSmoothie.price}`} />
-          <FlatButton label="Back" onClick={handleClose} fullWidth={true}/>
-        </Dialog>
+    return (<div>
+      <Dialog
+         title="Dialog With Actions"
+         actions={actions}
+         modal={false}
+         open={this.state.loginAlert}
+         onRequestClose={handleCloseLoginAlert}
+       >
+         The actions in this window were passed in as an array of React objects.
+       </Dialog>
+      <Dialog modal={false} open={this.state.open} autoScrollBodyContent={true} onRequestClose={handleClose} bodyClassName={'smoothie-dialog-content'} repositionOnUpdate="repositionOnUpdate">
+        <div id="image-container" class="center-cropped" style={{
+            backgroundImage: `url(${this.state.cardViewSmoothie.image})`
+          }}>
+          <GridTile title={this.state.cardViewSmoothie.name} subtitle={`Rs.${this.state.cardViewSmoothie.price}`} actionIcon={<IconButton tooltip="Added to the cart" tooltipPosition="top-left"> < ShoppingCart color = "rgb(255,255,255)" onClick = {
+              this.addToCart.bind(this, this.state.cardViewSmoothie)
+            } />< /IconButton>} titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"></GridTile>
+        </div>
+        <FlatButton label="Back" onClick={handleClose} fullWidth={true}/>
+      </Dialog>
 
-        <GridList cellHeight={180} style={GridVerticalStyles.gridList}>
-          {this.state.smoothies.map((smoothie) => (
-            <GridTile key={smoothie.id} title={smoothie.name} onClick={this.smoothieOnClick.bind(this, smoothie.id)}>
-              <img src={smoothie.image}/>
-            </GridTile>
-          ))}
-        </GridList>
-      </div>
-    );
+      <GridList cellHeight={180} style={GridVerticalStyles.gridList}>
+        {
+          this.state.smoothies.map((smoothie) => (<GridTile key={smoothie.id} title={smoothie.name} onClick={this.smoothieOnClick.bind(this, smoothie.id)}>
+            <img src={smoothie.image}/>
+          </GridTile>))
+        }
+      </GridList>
+    </div>);
   }
 }
 

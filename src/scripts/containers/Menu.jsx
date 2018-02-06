@@ -35,8 +35,16 @@ class Menu extends BaseContainer {
 */
   render() {
   const handleChange = this.handleChange.bind(this);
-
+  const headerContainerStyle = {
+    backgroundColor: '#00BF9A'
+  };
     return (
+      <div>
+      <div style={headerContainerStyle}>
+        <center>
+          MENU
+        </center>
+      </div>
       <Tabs value={this.state.value} onChange={handleChange}>
         <Tab label="Beverages" value="a">
           <div>
@@ -53,6 +61,7 @@ class Menu extends BaseContainer {
           </div>
         </Tab>
       </Tabs>
+      </div>
     );
   }
 }

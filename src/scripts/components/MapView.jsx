@@ -15,9 +15,20 @@ import {
 } from 'material-ui/Card';
 
 import Branch from './Branch';
-import {getAllBranches} from '../services/juiceBarService';
+import {getAllBranches, updateUser} from '../services/juiceBarService';
 import MediaQuery from 'react-responsive';
 import {browserHistory} from 'react-router';
+import {GridList, GridTile} from 'material-ui/GridList';
+import IconButton from 'material-ui/IconButton';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import ActionHome from 'material-ui/svg-icons/action/home';
+import ShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
+
+
+import {red500} from 'material-ui/styles/colors';
+
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 const customContentStyle = {
   // padding: 0,
@@ -70,11 +81,12 @@ class MapView extends React.Component {
 
     this.state = {
       open: false,
-
+      liked: false,
       branches: getAllBranches(),
       cardViewBranches: {
         name: '',
-        image: ''
+        image: '',
+        id: ''
       }
     };
 
@@ -101,8 +113,23 @@ class MapView extends React.Component {
         name: '',
         image: '',
         openingHours: '',
+        personLiked: this.createLikeMap()
       }
     });
+  }
+
+  createLikeMap() {
+    const personLiked = {};
+    const results = localStorage.getItem('user');
+    const user = JSON.parse(results);
+    const favouritePeople = (user.faveBranches || []);
+
+    favouritePeople
+      .forEach((person) => {
+        personLiked[person.id] = true;
+      });
+
+    return personLiked;
   }
 
   /**
@@ -110,6 +137,7 @@ class MapView extends React.Component {
   */
 
   handleMarkerPress(index) {
+    console.log(this.state.branches[index]);
     if (this.state.branches[index]) {
       this.setState({
         open: true,
@@ -118,9 +146,62 @@ class MapView extends React.Component {
           name: this.state.branches[index].name,
           image: this.state.branches[index].image,
           openingHours: this.state.branches[index].openingHours,
+          address: this.state.branches[index].address,
+          contact: this.state.branches[index].contact,
         }
       });
     }
+  }
+
+  add(branch) {
+    console.log(branch);
+      this.setState({liked: true});
+      const results = localStorage.getItem('user');
+      let user = JSON.parse(results);
+      console.log('local user');
+      console.log(user);
+      // user.faveBranches.forEach((place, index) => {
+      //   if(branch.id = place.id) {
+      //     console.log(user);
+      //   } else {
+      //     user.favBranches.push(branch);
+      //     localStorage.setItem('user', JSON.stringify(user));
+      //     updateUser(user.id);
+      //   }
+      // });
+      user.favBranches.push(branch);
+         localStorage.setItem('user', JSON.stringify(user));
+         updateUser(user.id);
+         const personLiked = {
+           ...this.state.personLiked,
+           [branch.id]: true,
+         };
+
+
+
+  }
+
+  remove(branch) {
+console.log(branch);
+  this.setState({liked: false});
+  let removeNewsIndex = null;
+  const results = localStorage.getItem('user');
+  let user = JSON.parse(results);
+  user.favBranches.forEach((place, index) => {
+    if(place.id === branch.id) {
+      removeNewsIndex = index;
+      console.log('Must remove item number ' + index);
+    }
+  });
+   user.faveNews.splice(removeNewsIndex, 1 );
+   localStorage.setItem('user', JSON.stringify(user));
+     console.log(user);
+     const personLiked = {
+       ...this.state.personLiked,
+       [branch.id]: false,
+     };
+
+     this.setState({personLiked});
   }
 
   /**
@@ -128,9 +209,41 @@ class MapView extends React.Component {
   * @return {String} HTML elements
   */
   render() {
-    console.log(this.state.cardViewBranches.id);
+    console.log(this.state.cardViewBranches);
     const handleMarkerPress = this.handleMarkerPress.bind(this);
     const handleClose = this.handleClose.bind(this);
+    const add = this.add.bind(this, this.state.cardViewBranches);
+    const remove = this.remove.bind(this, this.state.cardViewBranches);
+
+    let favouriteButton = null;
+    if (this.state.liked) {
+    favouriteButton = (
+      <div>
+        <div>
+          <IconButton
+             touch={true}
+             onClick ={remove}
+             color={red500}>
+            <ActionFavorite color={red500}/>
+          </IconButton>
+        </div>
+      </div>
+    );
+  } else {
+    favouriteButton = (
+      <div>
+        <div>
+          <IconButton
+             touch={true}
+              onClick ={add}
+             >
+            <ActionFavoriteBorder color={red500}/>
+          </IconButton>
+        </div>
+      </div>
+    );
+  }
+
 
     const actions = [ < FlatButton label = "Cancel" fullWidth={true}
       onClick = {
@@ -189,10 +302,21 @@ class MapView extends React.Component {
     return (
       <div>
        <div>
-         <Dialog modal={true} open={this.state.open} autoScrollBodyContent={true} onRequestClose={handleClose} bodyClassName={'mapview-dialog-content'} repositionOnUpdate>
-           <div id="image-container" class="center-cropped" style={{backgroundImage: `url(${this.state.cardViewBranches.image})`}}></div>
-           <CardTitle title={this.state.cardViewBranches.name} subtitle={this.state.cardViewBranches.openingHours}/>
-           <FlatButton label="Click for more" onClick={handleClose} fullWidth={true}/>
+
+
+         <Dialog modal={false} open={this.state.open} autoScrollBodyContent={true} onRequestClose={handleClose} bodyClassName={'smoothie-dialog-content'} repositionOnUpdate="repositionOnUpdate">
+           <div id="image-container" class="center-cropped" style={{
+               backgroundImage: `url(${this.state.cardViewBranches.image})`
+             }}>
+             <GridTile title={this.state.cardViewBranches.name} subtitle={`${this.state.cardViewBranches.openingHours}`} actionIcon={
+
+                 favouriteButton
+
+           } titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"></GridTile>
+           </div>
+           <div id="mapViewText"> Address: {this.state.cardViewBranches.address}</div>
+            <div id="mapViewText">Contact: {this.state.cardViewBranches.contact}</div>
+            <div></div>
          </Dialog>
 
        </div>

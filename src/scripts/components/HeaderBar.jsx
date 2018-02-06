@@ -14,8 +14,6 @@ import ActionViewHeadline from 'material-ui/svg-icons/action/view-headline';
 
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import {blue500, red500, grey50} from 'material-ui/styles/colors';
 import MediaQuery from 'react-responsive';
 import {List, ListItem} from 'material-ui/List';
@@ -27,6 +25,15 @@ import ActionAssignment from 'material-ui/svg-icons/action/assignment';
 import {yellow600} from 'material-ui/styles/colors';
 import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
 import ActionInfo from 'material-ui/svg-icons/action/info';
+
+
+import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import RaisedButton from 'material-ui/RaisedButton';
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import Search from 'material-ui/svg-icons/action/search';
+import ShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
+import ViewHeadline from 'material-ui/svg-icons/action/view-headline';
 /**
  * Representing the header bar
  */
@@ -81,7 +88,7 @@ class HeaderBar extends Component {
    * Handle the drawer  event
    */
   handleClose() {
-    this.setState({open: true});
+    this.setState({open: false});
   }
 
   /**
@@ -128,7 +135,7 @@ class HeaderBar extends Component {
    * Navigates to the QR code generation
    */
   navaigateToQRCode() {
-    browserHistory.push('/QRCode');
+    browserHistory.push('/QRCodeGenerator');
     this.setState({open: false});
   }
 
@@ -172,6 +179,14 @@ class HeaderBar extends Component {
     this.setState({open: false});
   }
 
+  /**
+   * Navigates to the menu view page
+   */
+  navaigateToProfile() {
+    browserHistory.push('/profile');
+    this.setState({open: false});
+  }
+
 
   /**
   * Describes the elements on the registration page
@@ -194,34 +209,64 @@ class HeaderBar extends Component {
     const navaigateToEvents = this.navaigateToEvents.bind(this);
     const navaigateToNewsletters = this.navaigateToNewsletters.bind(this);
     const navaigateToMapView = this.navaigateToMapView.bind(this);
-
+    const navaigateToProfile = this.navaigateToProfile.bind(this);
 
     const headerContainerStyle = {
       backgroundColor: '#00BF9A'
     };
 
+    const toolbar = {
+      height: '80px',
+      background: '#00BF9A'
+    }
+
     let open = this.state.open;
 
     return (
-        <div style={headerContainerStyle}>
-          <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
-            <MenuItem onClick={navaigateToHome}>Home</MenuItem>
-            <MenuItem onClick={navaigateToMenu}>Menu</MenuItem>
-            <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
-            <MenuItem onClick={navaigateToEvents}>Events</MenuItem>
-            <MenuItem onClick={navaigateToNewsletters}>Newsletters</MenuItem>
-            <MenuItem onClick={navaigateToMapView}>Find Us map
-            </MenuItem>
-            <MenuItem onClick={navaigateToAboutUs}>About Us</MenuItem>
-            <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
-            <MenuItem onClick={navaigateToPlaceOrder}>Place Order</MenuItem>
-            <MenuItem onClick={navaigateToQRCode}>Scan It</MenuItem>
-          </Drawer>
-
+      <div style={headerContainerStyle}>
+        <Toolbar style={toolbar}>
+      <ToolbarGroup firstChild={true} float="left">
+        <Drawer docked={false} open={open} onRequestChange={handleClose} disableSwipeToOpen>
+          <MenuItem onClick={navaigateToHome}>Home</MenuItem>
+          <MenuItem onClick={navaigateToMenu}>Menu</MenuItem>
+          <MenuItem onClick={navaigateToDeals}>Promos</MenuItem>
+          <MenuItem onClick={navaigateToEvents}>Events</MenuItem>
+          <MenuItem onClick={navaigateToNewsletters}>Newsletters</MenuItem>
+          <MenuItem onClick={navaigateToMapView}>Find Us map
+          </MenuItem>
+          <MenuItem onClick={navaigateToAboutUs}>About Us</MenuItem>
+          <MenuItem onClick={navaigateToSpotIt}>Spot it</MenuItem>
+          <MenuItem onClick={navaigateToPlaceOrder}>Place Order</MenuItem>
+          <MenuItem onClick={navaigateToQRCode}>Scan It</MenuItem>
+          <MenuItem onClick={navaigateToProfile}>Profile</MenuItem>
+        </Drawer>
+        <div>
           <IconButton onClick={handleToggle}>
-            <ActionViewHeadline color={grey50} hoverColor={grey50} onClick={handleToggle}/>
+            <ViewHeadline  color='black' hoverColor={grey50} onClick={handleToggle}/>
           </IconButton>
         </div>
+      </ToolbarGroup>
+
+      <ToolbarGroup style={{
+          float       : 'none',
+          width       : '100px',
+          marginLeft  : 'auto',
+          marginRight : 'auto',
+          paddingBottom: '10px'
+      }}>
+          <img src="http://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjfCGqRFInRnJwXs1M3EMoAJtlSEuhvVu9v4z" alt="Logo is down" width="110" height="65"/>
+      </ToolbarGroup>
+
+      <ToolbarGroup lastChild={true} float="right">
+        <IconButton>
+          
+      </IconButton>
+
+      </ToolbarGroup>
+  </Toolbar>
+
+      </div>
+
 )
   }
 }
