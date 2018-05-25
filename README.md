@@ -17,6 +17,13 @@ Responsive mobile applicaiton for all the mobile devices and ipad pro device for
 10. Login and registration 
 11. User interactive gamification  
 
+![alt text](https://user-images.githubusercontent.com/20472144/40551836-a5a49476-605b-11e8-8262-7475c66b6cfe.png)
+
+![alt text](https://user-images.githubusercontent.com/20472144/40551857-b37126dc-605b-11e8-9211-98dbe96aac9e.png)
+
+![alt text](https://user-images.githubusercontent.com/20472144/40551883-c051884c-605b-11e8-8f7e-ca93cfbee492.png)
+
+
 ### Development
 1. `git clone <repo-url>`
 2. `npm i`
